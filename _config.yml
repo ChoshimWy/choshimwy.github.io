@@ -103,5 +103,5 @@ theme: oishi
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/ChoshimWy/choshimwy.github.io
+  repo: git@github.com:ChoshimWy/choshimwy.github.io.git
 branch: main
