@@ -104,4 +104,4 @@ theme: oishi
 deploy:
   type: git
   repo: https://github.com/ChoshimWy/choshimwy.github.io
-branch: mian
+branch: main
