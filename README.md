@@ -1,1 +1,0 @@
-# choshimwy.github.io
