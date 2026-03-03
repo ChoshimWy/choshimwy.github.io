@@ -1,1 +1,481 @@
-<!DOCTYPE html><html lang="en-US"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel="icon" href="/favicon.ico"><link rel="mask-icon" href="/favicon.svg" color="#333333"><title>Documentation</title><script>var baseUrl = "/"</script><link href="/css/chunk-c0335d80.10a2f091.css" rel="prefetch"><link href="/css/documentation-topic.1d1eec04.css" rel="prefetch"><link href="/css/documentation-topic~topic.b6287bcf.css" rel="prefetch"><link href="/css/documentation-topic~topic~tutorials-overview.d6f5411c.css" rel="prefetch"><link href="/css/topic.d8c126f3.css" rel="prefetch"><link href="/css/tutorials-overview.c249c765.css" rel="prefetch"><link href="/js/chunk-2d0d3105.cd72cc8e.js" rel="prefetch"><link href="/js/chunk-c0335d80.76a68cc5.js" rel="prefetch"><link href="/js/documentation-topic.57e91f8a.js" rel="prefetch"><link href="/js/documentation-topic~topic.1679ec90.js" rel="prefetch"><link href="/js/documentation-topic~topic~tutorials-overview.90c61522.js" rel="prefetch"><link href="/js/highlight-js-bash.1b52852f.js" rel="prefetch"><link href="/js/highlight-js-c.d1db3f17.js" rel="prefetch"><link href="/js/highlight-js-cpp.eaddddbe.js" rel="prefetch"><link href="/js/highlight-js-css.75eab1fe.js" rel="prefetch"><link href="/js/highlight-js-custom-markdown.7cffc4b3.js" rel="prefetch"><link href="/js/highlight-js-custom-swift.5cda5c20.js" rel="prefetch"><link href="/js/highlight-js-diff.62d66733.js" rel="prefetch"><link href="/js/highlight-js-http.163e45b6.js" rel="prefetch"><link href="/js/highlight-js-java.8326d9d8.js" rel="prefetch"><link href="/js/highlight-js-javascript.acb8a8eb.js" rel="prefetch"><link href="/js/highlight-js-json.471128d2.js" rel="prefetch"><link href="/js/highlight-js-llvm.6100b125.js" rel="prefetch"><link href="/js/highlight-js-markdown.90077643.js" rel="prefetch"><link href="/js/highlight-js-objectivec.bcdf5156.js" rel="prefetch"><link href="/js/highlight-js-perl.757d7b6f.js" rel="prefetch"><link href="/js/highlight-js-php.cc8d6c27.js" rel="prefetch"><link href="/js/highlight-js-python.c214ed92.js" rel="prefetch"><link href="/js/highlight-js-ruby.f889d392.js" rel="prefetch"><link href="/js/highlight-js-scss.62ee18da.js" rel="prefetch"><link href="/js/highlight-js-shell.dd7f411f.js" rel="prefetch"><link href="/js/highlight-js-swift.84f3e88c.js" rel="prefetch"><link href="/js/highlight-js-xml.9c3688c7.js" rel="prefetch"><link href="/js/topic.8cd0c0c4.js" rel="prefetch"><link href="/js/tutorials-overview.2a32cd6f.js" rel="prefetch"><link href="/css/index.038e887c.css" rel="preload" as="style"><link href="/js/chunk-vendors.ba2dd0cb.js" rel="preload" as="script"><link href="/js/index.e8a5d294.js" rel="preload" as="script"><link href="/css/index.038e887c.css" rel="stylesheet"></head><body data-color-scheme="auto"><noscript><style>.noscript{font-family:"SF Pro Display","SF Pro Icons","Helvetica Neue",Helvetica,Arial,sans-serif;margin:92px auto 140px auto;text-align:center;width:980px}.noscript-title{color:#111;font-size:48px;font-weight:600;letter-spacing:-.003em;line-height:1.08365;margin:0 auto 54px auto;width:502px}@media only screen and (max-width:1068px){.noscript{margin:90px auto 120px auto;width:692px}.noscript-title{font-size:40px;letter-spacing:0;line-height:1.1;margin:0 auto 45px auto;width:420px}}@media only screen and (max-width:735px){.noscript{margin:45px auto 60px auto;width:87.5%}.noscript-title{font-size:32px;letter-spacing:.004em;line-height:1.125;margin:0 auto 35px auto;max-width:330px;width:auto}}#loading-placeholder{display:none}</style><div class="noscript"><h1 class="noscript-title">This page requires JavaScript.</h1><p>Please turn on JavaScript in your browser and refresh the page to view its content.</p></div></noscript><div id="app"></div><script src="/js/chunk-vendors.ba2dd0cb.js"></script><script src="/js/index.e8a5d294.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Choshim Wei · Indie Apps</title>
+	<meta name="description" content="Independent apps by Choshim Wei. Focused on sleep, rhythm, and calm productivity." />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+	<style>
+		:root {
+			--bg: #0b0f14;
+			--ink: #eef2f7;
+			--muted: #9aa5b1;
+			--accent: #2fe4b8;
+			--accent-2: #ffb454;
+			--panel: rgba(255, 255, 255, 0.05);
+			--panel-strong: rgba(255, 255, 255, 0.09);
+			--border: rgba(255, 255, 255, 0.12);
+			--shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+			--radius: 16px;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			font-family: "Space Grotesk", "Helvetica Neue", sans-serif;
+			color: var(--ink);
+			background:
+				radial-gradient(circle at 15% 20%, rgba(47, 228, 184, 0.18), transparent 35%),
+				radial-gradient(circle at 85% 10%, rgba(255, 180, 84, 0.18), transparent 35%),
+				radial-gradient(circle at 70% 85%, rgba(100, 160, 255, 0.12), transparent 40%),
+				var(--bg);
+			line-height: 1.7;
+			-webkit-font-smoothing: antialiased;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
+
+		.page {
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 28px 20px 96px;
+		}
+
+		.glass {
+			background: var(--panel);
+			border: 1px solid var(--border);
+			border-radius: var(--radius);
+			box-shadow: var(--shadow);
+			backdrop-filter: blur(18px);
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 14px 20px;
+			position: sticky;
+			top: 14px;
+			z-index: 5;
+		}
+
+		.brand {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			font-weight: 600;
+		}
+
+		.brand-mark {
+			width: 44px;
+			height: 44px;
+			border-radius: 14px;
+			background: linear-gradient(140deg, rgba(47, 228, 184, 0.7), rgba(255, 180, 84, 0.7));
+			display: grid;
+			place-items: center;
+			color: #0b0f14;
+			font-weight: 700;
+			box-shadow: 0 12px 30px rgba(47, 228, 184, 0.25);
+		}
+
+		nav {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+		}
+
+		.pill {
+			padding: 8px 14px;
+			border-radius: 999px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.04);
+			font-size: 13px;
+			transition: all 0.2s ease;
+		}
+
+		.pill:hover {
+			background: rgba(255, 255, 255, 0.1);
+			border-color: rgba(255, 255, 255, 0.2);
+		}
+
+		.pill.primary {
+			background: linear-gradient(120deg, var(--accent), var(--accent-2));
+			color: #0b0f14;
+			border: none;
+			font-weight: 700;
+			box-shadow: 0 14px 28px rgba(47, 228, 184, 0.24);
+		}
+
+		.hero {
+			margin-top: 22px;
+			padding: 54px 34px 44px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.hero::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background:
+				radial-gradient(circle at 20% 15%, rgba(47, 228, 184, 0.18), transparent 45%),
+				radial-gradient(circle at 85% 20%, rgba(255, 180, 84, 0.18), transparent 45%);
+			pointer-events: none;
+		}
+
+		.eyebrow {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 6px 12px;
+			border-radius: 999px;
+			border: 1px solid rgba(255, 255, 255, 0.16);
+			background: rgba(255, 255, 255, 0.06);
+			font-size: 13px;
+			letter-spacing: 0.3px;
+		}
+
+		h1 {
+			font-family: "Fraunces", "Times New Roman", serif;
+			font-size: 46px;
+			line-height: 1.1;
+			margin: 16px 0 12px;
+			letter-spacing: -0.5px;
+		}
+
+		.hero p {
+			max-width: 620px;
+			color: var(--muted);
+			font-size: 17px;
+			margin: 0 0 20px;
+		}
+
+		.cta {
+			display: flex;
+			gap: 12px;
+			flex-wrap: wrap;
+		}
+
+		.stats {
+			margin-top: 22px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 12px;
+		}
+
+		.stat {
+			padding: 14px 16px;
+			border-radius: 12px;
+			background: rgba(255, 255, 255, 0.05);
+			border: 1px solid var(--border);
+		}
+
+		.stat strong {
+			display: block;
+			font-size: 20px;
+			margin-bottom: 4px;
+		}
+
+		.section-title {
+			margin: 44px 0 12px;
+			font-size: 24px;
+			letter-spacing: -0.2px;
+		}
+
+		.app-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 16px;
+		}
+
+		.app-card {
+			padding: 18px;
+			border-radius: 14px;
+			border: 1px solid var(--border);
+			background: var(--panel);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.app-card::before {
+			content: "";
+			position: absolute;
+			width: 140px;
+			height: 140px;
+			top: -50px;
+			right: -40px;
+			background: radial-gradient(circle, rgba(47, 228, 184, 0.18), transparent 70%);
+			pointer-events: none;
+		}
+
+		.app-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 12px;
+		}
+
+		.app-title {
+			font-size: 18px;
+			margin: 0;
+		}
+
+		.tag {
+			padding: 6px 10px;
+			border-radius: 999px;
+			font-size: 12px;
+			background: var(--panel-strong);
+			border: 1px solid var(--border);
+			color: var(--muted);
+		}
+
+		.app-card p {
+			margin: 10px 0 16px;
+			color: var(--muted);
+			font-size: 15px;
+		}
+
+		.card-actions {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+
+		.feature-row {
+			margin-top: 24px;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+			gap: 14px;
+		}
+
+		.feature {
+			padding: 16px;
+			border-radius: 14px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.04);
+		}
+
+		.feature h3 {
+			margin: 0 0 8px;
+			font-size: 16px;
+		}
+
+		.feature p {
+			margin: 0;
+			color: var(--muted);
+			font-size: 14px;
+		}
+
+		.about {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+			gap: 16px;
+		}
+
+		.about-card {
+			padding: 18px;
+			border-radius: 14px;
+			border: 1px solid var(--border);
+			background: rgba(255, 255, 255, 0.03);
+		}
+
+		.about-card h3 {
+			margin: 0 0 10px;
+			font-size: 18px;
+		}
+
+		.about-card ul {
+			margin: 0;
+			padding-left: 18px;
+			color: var(--muted);
+		}
+
+		footer {
+			margin-top: 48px;
+			text-align: center;
+			color: var(--muted);
+			font-size: 13px;
+		}
+
+		.reveal {
+			opacity: 0;
+			transform: translateY(18px);
+			animation: fadeUp 0.8s ease forwards;
+		}
+
+		.reveal.delay-1 { animation-delay: 0.1s; }
+		.reveal.delay-2 { animation-delay: 0.2s; }
+		.reveal.delay-3 { animation-delay: 0.35s; }
+
+		@keyframes fadeUp {
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			.reveal {
+				animation: none;
+				opacity: 1;
+				transform: none;
+			}
+		}
+
+		@media (max-width: 720px) {
+			header {
+				position: static;
+				flex-direction: column;
+				align-items: flex-start;
+				gap: 12px;
+			}
+
+			h1 {
+				font-size: 34px;
+			}
+
+			.hero {
+				padding: 34px 22px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<header class="glass">
+			<div class="brand">
+				<div class="brand-mark">CW</div>
+				<div>
+					<div>Choshim Wei</div>
+					<div style="font-size: 12px; color: var(--muted);">Independent app maker</div>
+				</div>
+			</div>
+			<nav>
+				<a class="pill" href="#apps">Apps</a>
+				<a class="pill" href="#focus">Focus</a>
+				<a class="pill" href="#about">About</a>
+				<a class="pill primary" href="mailto:choshim.wei@gmail.com">Contact</a>
+			</nav>
+		</header>
+
+		<section class="hero glass reveal">
+			<div class="eyebrow">Indie Studio · Sleep · Rhythm · Calm</div>
+			<h1>Crafting apps that make nights quieter and mornings clearer.</h1>
+			<p>
+				这是一个多 App 的个人开发者主页。每个 App 都有独立官网与隐私政策，
+				聚焦睡眠节律、身心恢复与更有节奏的生活方式。
+			</p>
+			<div class="cta">
+				<a class="pill primary" href="#apps">Explore apps</a>
+				<a class="pill" href="app-ads.txt">App-ads.txt</a>
+			</div>
+			<div class="stats">
+				<div class="stat">
+					<strong>2</strong>
+					<span style="color: var(--muted); font-size: 14px;">Live apps</span>
+				</div>
+				<div class="stat">
+					<strong>2</strong>
+					<span style="color: var(--muted); font-size: 14px;">Web pages per app</span>
+				</div>
+				<div class="stat">
+					<strong>2026</strong>
+					<span style="color: var(--muted); font-size: 14px;">Active year</span>
+				</div>
+			</div>
+		</section>
+
+		<section id="apps" class="reveal delay-1">
+			<h2 class="section-title">Apps</h2>
+			<div class="app-grid">
+				<article class="app-card">
+					<div class="app-header">
+						<h3 class="app-title">夜律 · NoctiBeat</h3>
+						<span class="tag">Sleep & Recovery</span>
+					</div>
+					<p>
+						Night rhythm insights powered by HealthKit: sleep stages, heart-rate
+						variability, and a calm recovery plan you can actually follow.
+					</p>
+					<div class="card-actions">
+						<a class="pill primary" href="apps/noctibeat/index.html">Website</a>
+						<a class="pill" href="apps/noctibeat/privacy.html">Privacy</a>
+						<a class="pill" href="https://apps.apple.com/cn/app/%E5%A4%9C%E5%BE%8B/id6758320663" target="_blank" rel="noopener">App Store</a>
+					</div>
+				</article>
+				<article class="app-card">
+					<div class="app-header">
+						<h3 class="app-title">FormulaVis</h3>
+						<span class="tag">Generative Visualization</span>
+					</div>
+					<p>
+						Turn math formulas into real-time 2D/3D scenes. Explore how variables
+						shape motion, structure, and visual rhythm.
+					</p>
+					<div class="card-actions">
+						<a class="pill primary" href="apps/formulavis/index.html">Website</a>
+						<a class="pill" href="apps/formulavis/privacy.html">Privacy</a>
+						<a class="pill" href="apps/formulavis/data/formula_library.json">Formula Library</a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section id="focus" class="reveal delay-2">
+			<h2 class="section-title">Focus</h2>
+			<div class="feature-row">
+				<div class="feature">
+					<h3>Sleep-first design</h3>
+					<p>轻量、可执行的睡眠与恢复建议，避免过度干预。</p>
+				</div>
+				<div class="feature">
+					<h3>HealthKit precision</h3>
+					<p>以系统健康数据为基础，保持数据透明与可控。</p>
+				</div>
+				<div class="feature">
+					<h3>Quiet visuals</h3>
+					<p>低刺激界面和信息节奏，适合夜间使用。</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="about" class="reveal delay-3">
+			<h2 class="section-title">About</h2>
+			<div class="about">
+				<div class="about-card">
+					<h3>Principles</h3>
+					<ul>
+						<li>Respect privacy by default</li>
+						<li>Ship lean, iterate fast</li>
+						<li>Design for long-term calm</li>
+					</ul>
+				</div>
+				<div class="about-card">
+					<h3>Contact</h3>
+					<p style="color: var(--muted); margin: 0 0 10px;">
+						Have feedback, requests, or collaboration ideas?
+					</p>
+					<a class="pill" href="mailto:choshim.wei@gmail.com">choshim.wei@gmail.com</a>
+				</div>
+			</div>
+		</section>
+
+		<footer>
+			© <span id="year"></span> Choshim Wei. All rights reserved.
+		</footer>
+	</div>
+
+	<script>
+		document.getElementById('year').textContent = String(new Date().getFullYear());
+	</script>
+</body>
+</html>

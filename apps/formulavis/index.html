@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FormulaVis</title>
+  <meta name="description" content="数学驱动的生成式可视化 App。" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <nav class="nav">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>FormulaVis</div>
+      </div>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="data/formula_library.json">
+            <span class="lang lang-zh">公式库 JSON</span>
+            <span class="lang lang-en">Formula Library JSON</span>
+          </a>
+          <a href="privacy.html">
+            <span class="lang lang-zh">隐私政策</span>
+            <span class="lang lang-en">Privacy</span>
+          </a>
+        </div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button class="lang-toggle" data-lang="zh">中文</button>
+          <button class="lang-toggle" data-lang="en">EN</button>
+        </div>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <div class="inline-pill">
+          <span class="lang lang-zh">数学驱动可视化</span>
+          <span class="lang lang-en">Math-Driven Visualization</span>
+        </div>
+        <h1 class="lang lang-zh">让数学运行给人看</h1>
+        <h1 class="lang lang-en">See Math in Motion</h1>
+        <p class="muted lang lang-zh">
+          FormulaVis 是一款将数学公式实时转化为动态 2D/3D 视觉场景的生成式可视化 App。
+          它不强调推导，而是让用户通过视觉与交互理解变量如何驱动世界变化。
+        </p>
+        <p class="en lang lang-en">
+          FormulaVis turns mathematical formulas into real-time 2D/3D scenes.
+          It prioritizes intuition over derivation, helping users see how variables drive change.
+        </p>
+        <div class="hero-actions">
+          <a class="button" href="data/formula_library.json">
+            <span class="lang lang-zh">查看公式库 JSON</span>
+            <span class="lang lang-en">View Formula Library JSON</span>
+          </a>
+          <a class="button secondary" href="privacy.html">
+            <span class="lang lang-zh">阅读隐私政策</span>
+            <span class="lang lang-en">Read Privacy Policy</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <h3>
+            <span class="lang lang-zh">场景优先</span>
+            <span class="lang lang-en">Scene First</span>
+          </h3>
+          <p class="muted lang lang-zh">每个 Scene 是一个可执行的视觉单元，数学、时间与视觉映射共同驱动画面。</p>
+          <p class="en lang lang-en">Each scene is an executable visual unit driven by math, time, and mapping.</p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="lang lang-zh">官方公式库</span>
+            <span class="lang lang-en">Official Formula Library</span>
+          </h3>
+          <p class="muted lang lang-zh">仅使用官方公式模块进行组合，确保可控、可解释与一致的视觉语义。</p>
+          <p class="en lang lang-en">Only official modules are used to ensure consistency and interpretability.</p>
+        </div>
+        <div class="card">
+          <h3>
+            <span class="lang lang-zh">稳定可扩展</span>
+            <span class="lang lang-en">Stable & Scalable</span>
+          </h3>
+          <p class="muted lang lang-zh">通过公式库 JSON + GitHub 更新机制，持续迭代内容与体验。</p>
+          <p class="en lang lang-en">The JSON library and GitHub updates keep content evolving smoothly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="library">
+      <h2>
+        <span class="lang lang-zh">公式库 JSON</span>
+        <span class="lang lang-en">Formula Library JSON</span>
+      </h2>
+      <p class="muted lang lang-zh">
+        公式库以 JSON 形式提供，包含公式模块、参数、映射与教学语义等结构化信息。
+        该文件用于 App 内部加载，也可用于外部内容工具与审查流程。
+      </p>
+      <p class="en lang lang-en">
+        The formula library ships as JSON with modules, parameters, mappings, and teaching semantics.
+        It is used in-app and in external review or tooling workflows.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="data/formula_library.json">
+          <span class="lang lang-zh">下载公式库 JSON</span>
+          <span class="lang lang-en">Download JSON</span>
+        </a>
+        <a class="button secondary" href="privacy.html">
+          <span class="lang lang-zh">查看隐私政策</span>
+          <span class="lang lang-en">View Privacy Policy</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>
+        <span class="lang lang-zh">开放与合作</span>
+        <span class="lang lang-en">Collaboration</span>
+      </h2>
+      <p class="muted lang lang-zh">
+        如需参与公式库整理、可视化映射建议或内容审核，请联系团队获取协作入口。
+      </p>
+      <p class="en lang lang-en">
+        For collaboration on the library, mappings, or reviews, contact the FormulaVis team.
+      </p>
+      <p class="muted lang lang-zh">联系邮箱：<a href="mailto:choshim.wei@gmail.com">choshim.wei@gmail.com</a></p>
+      <p class="en lang lang-en">Contact: <a href="mailto:choshim.wei@gmail.com">choshim.wei@gmail.com</a></p>
+    </section>
+
+    <footer class="footer">
+      <div>© 2026 FormulaVis</div>
+      <div>
+        <span class="lang lang-zh">公式库与内容由 FormulaVis 团队维护</span>
+        <span class="lang lang-en">Maintained by FormulaVis Team</span>
+      </div>
+    </footer>
+  </div>
+  <script>
+    const root = document.documentElement;
+    const buttons = Array.from(document.querySelectorAll('.lang-toggle'));
+    const saved = localStorage.getItem('fv_lang') || 'en';
+    root.setAttribute('data-lang', saved);
+    document.documentElement.lang = saved === 'en' ? 'en' : 'zh-Hans';
+    buttons.forEach((btn) => {
+      if (btn.dataset.lang === saved) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        const lang = btn.dataset.lang;
+        root.setAttribute('data-lang', lang);
+        localStorage.setItem('fv_lang', lang);
+        document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hans';
+        buttons.forEach((b) => b.classList.toggle('active', b.dataset.lang === lang));
+      });
+    });
+  </script>
+</body>
+</html>

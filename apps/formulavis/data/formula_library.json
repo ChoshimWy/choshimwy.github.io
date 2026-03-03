@@ -1,0 +1,4678 @@
+{
+  "schemaVersion": "1.0",
+  "version": "structured-2026-02-04",
+  "modules": [
+    {
+      "id": "sine_oscillation",
+      "name": {
+        "zh-Hans": "正弦振荡",
+        "en": "Sine Oscillation"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t) = A · sin(2π f t + φ)",
+      "params": [
+        "A (amplitude, 0.1–2.0, default 1.0)",
+        "f (frequency, 0.2–2.0, default 1.0)",
+        "φ (phase, 0–2π, default 0)"
+      ],
+      "mapping": "position ← x(t), color ← φ",
+      "teaching_semantics": {
+        "zh-Hans": "展示周期性往复变化",
+        "en": "Shows periodic oscillation."
+      },
+      "preview": "6–10s 循环波形"
+    },
+    {
+      "id": "cosine_oscillation",
+      "name": {
+        "zh-Hans": "余弦振荡",
+        "en": "Cosine Oscillation"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t) = A · cos(2π f t + φ)",
+      "params": [
+        "A (amplitude, 0.1–2.0, default 1.0)",
+        "f (frequency, 0.2–2.0, default 1.0)",
+        "φ (phase, 0–2π, default 0)"
+      ],
+      "mapping": "position ← x(t), color ← φ",
+      "teaching_semantics": {
+        "zh-Hans": "展示相位变化与周期结构",
+        "en": "Shows phase variation and periodic structure."
+      },
+      "preview": "6–10s 循环波形"
+    },
+    {
+      "id": "damped_oscillation",
+      "name": {
+        "zh-Hans": "阻尼振荡",
+        "en": "Damped Oscillation"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t) = A0 · exp(-λ t) · sin(2π f t + φ)",
+      "params": [
+        "A0 (amplitude, 0.1–2.0, default 1.0)",
+        "f (frequency, 0.2–2.0, default 1.0)",
+        "λ (damping, 0.0–1.0, default 0.15)"
+      ],
+      "mapping": "position ← x(t), alpha ← exp(-λ t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示振幅随时间衰减",
+        "en": "Shows amplitude decay over time."
+      },
+      "preview": "8–12s 呼吸式衰减"
+    },
+    {
+      "id": "lissajous_curve",
+      "name": {
+        "zh-Hans": "利萨如曲线",
+        "en": "Lissajous Curve"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t)=Ax·sin(2π f_x t+φ), y(t)=Ay·sin(2π f_y t)",
+      "params": [
+        "Ax (0.5–2.0, default 1.0)",
+        "Ay (0.5–2.0, default 1.0)",
+        "f_x (1–5, default 2)",
+        "f_y (1–5, default 3)",
+        "φ (0–2π, default 0)"
+      ],
+      "mapping": "position ← (x(t), y(t)), color ← φ",
+      "teaching_semantics": {
+        "zh-Hans": "展示频率比决定形态",
+        "en": "Shows shapes determined by frequency ratios."
+      },
+      "preview": "8–12s 图形闭合循环"
+    },
+    {
+      "id": "wave_superposition",
+      "name": {
+        "zh-Hans": "波叠加",
+        "en": "Wave Superposition"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t) = Σ_i A_i · sin(2π f_i t + φ_i)",
+      "params": [
+        "A_i (0.1–1.0, default 0.6)",
+        "f_i (0.2–2.0, default 0.8)",
+        "φ_i (0–2π, default 0)"
+      ],
+      "mapping": "position ← x(t), color ← f_i",
+      "teaching_semantics": {
+        "zh-Hans": "展示多波叠加与干涉",
+        "en": "Shows multi-wave superposition and interference."
+      },
+      "preview": "8–12s 干涉起伏"
+    },
+    {
+      "id": "exponential_growth_decay",
+      "name": {
+        "zh-Hans": "指数增长 / 衰减",
+        "en": "Exponential Growth / Decay"
+      },
+      "category": [
+        "Growth"
+      ],
+      "formula": "x(t) = A0 · exp(r t)",
+      "params": [
+        "A0 (initial, 0.2–2.0, default 1.0)",
+        "r (rate, -1.0–1.0, default 0.3)"
+      ],
+      "mapping": "position/scale ← x(t), color ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示指数增长或衰减趋势",
+        "en": "Shows exponential growth or decay trends."
+      },
+      "preview": "6–10s 单向变化"
+    },
+    {
+      "id": "logistic_growth",
+      "name": {
+        "zh-Hans": "逻辑斯蒂增长",
+        "en": "Logistic Growth"
+      },
+      "category": [
+        "Growth"
+      ],
+      "formula": "x(t) = K / (1 + exp(-r (t - t0)))",
+      "params": [
+        "K (capacity, 0.5–2.0, default 1.0)",
+        "r (rate, 0.1–1.0, default 0.5)",
+        "t0 (midpoint, 0–1, default 0.5)"
+      ],
+      "mapping": "position/scale ← x(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示“增长→饱和”的 S 曲线",
+        "en": "Shows the S-curve from growth to saturation."
+      },
+      "preview": "8–12s S 形过渡"
+    },
+    {
+      "id": "logarithmic_spiral",
+      "name": {
+        "zh-Hans": "对数螺旋 / 黄金螺旋",
+        "en": "Logarithmic Spiral / Golden Spiral"
+      },
+      "category": [
+        "Ratio"
+      ],
+      "formula": "r(θ) = a · exp(b θ)",
+      "params": [
+        "a (0.2–1.0, default 0.4)",
+        "b (0.05–0.35, default 0.2)",
+        "φ (rotation offset, 0–2π, default 0)"
+      ],
+      "mapping": "position ← (r cosθ, r sinθ), color ← θ",
+      "teaching_semantics": {
+        "zh-Hans": "展示比例驱动的螺旋生长",
+        "en": "Shows proportion-driven spiral growth."
+      },
+      "preview": "8–12s 螺旋扩展"
+    },
+    {
+      "id": "fourier_transform_fft",
+      "name": {
+        "zh-Hans": "傅里叶变换（FFT）",
+        "en": "Fourier Transform (FFT)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "S(ω) = |FFT(x(t))|",
+      "params": [
+        "Window (64–1024, default 256)",
+        "Smoothing (0.0–0.9, default 0.4)"
+      ],
+      "mapping": "position ← ω, height ← S(ω)",
+      "teaching_semantics": {
+        "zh-Hans": "展示时域到频域的能量分布",
+        "en": "Shows energy distribution from time domain to frequency domain."
+      },
+      "preview": "6–10s 频谱起伏"
+    },
+    {
+      "id": "spectral_mapping",
+      "name": {
+        "zh-Hans": "频谱映射",
+        "en": "Spectral Mapping"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "map(S(ω)) → geometry/color",
+      "params": [
+        "Bands (16–128, default 64)",
+        "Gain (0.5–2.0, default 1.0)",
+        "Falloff (0.0–1.0, default 0.3)"
+      ],
+      "mapping": "color/height ← S(ω)",
+      "teaching_semantics": {
+        "zh-Hans": "展示频谱到视觉属性的映射",
+        "en": "Shows mapping from spectrum to visual attributes."
+      },
+      "preview": "6–10s 频谱光带"
+    },
+    {
+      "id": "harmonic_oscillator",
+      "name": {
+        "zh-Hans": "简谐振子",
+        "en": "Harmonic Oscillator"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x'' + (c/m) x' + (k/m) x = 0",
+      "params": [
+        "k (0.5–5.0, default 2.0)",
+        "m (0.5–3.0, default 1.0)",
+        "c (damping, 0.0–1.0, default 0.2)"
+      ],
+      "mapping": "position ← x(t), alpha ← c",
+      "teaching_semantics": {
+        "zh-Hans": "展示回复力与阻尼的影响",
+        "en": "Shows effects of restoring force and damping."
+      },
+      "preview": "8–12s 往复衰减"
+    },
+    {
+      "id": "particle_attraction_repulsion",
+      "name": {
+        "zh-Hans": "粒子吸引/排斥规则",
+        "en": "Particle Attraction / Repulsion Rule"
+      },
+      "category": [
+        "Dynamics",
+        "Particles"
+      ],
+      "formula": "F = strength · f(distance, range)",
+      "params": [
+        "Strength (-1.0–1.0, default 0.4)",
+        "Range (0.1–1.0, default 0.5)",
+        "Damping (0.0–1.0, default 0.2)"
+      ],
+      "mapping": "position/velocity ← F",
+      "teaching_semantics": {
+        "zh-Hans": "展示群体粒子协同行为",
+        "en": "Shows collective particle behaviors."
+      },
+      "preview": "8–12s 聚散变化"
+    },
+    {
+      "id": "lorenz_attractor",
+      "name": {
+        "zh-Hans": "洛伦兹吸引子",
+        "en": "Lorenz Attractor"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x' = σ(y-x), y' = x(ρ-z)-y, z' = xy-βz",
+      "params": [
+        "σ (5–20, default 10)",
+        "ρ (10–40, default 28)",
+        "β (1–4, default 2.67)"
+      ],
+      "mapping": "position ← (x,y,z), color ← z",
+      "teaching_semantics": {
+        "zh-Hans": "展示混沌系统的轨迹结构",
+        "en": "Shows trajectory structure of a chaotic system."
+      },
+      "preview": "10–14s 轨迹缠绕"
+    },
+    {
+      "id": "chua_attractor",
+      "name": {
+        "zh-Hans": "蔡氏吸引子",
+        "en": "Chua Attractor"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x' = α (y - x - f(x)), y' = x - y + z, z' = -β y",
+      "params": [
+        "α (5–20, default 15.6)",
+        "β (10–40, default 28)",
+        "m0 (-1.5–-0.5, default -1.2)",
+        "m1 (-0.5–0.0, default -0.7)"
+      ],
+      "mapping": "position ← (x,y,z), color ← z",
+      "teaching_semantics": {
+        "zh-Hans": "展示多涡旋混沌吸引子",
+        "en": "Shows a multi-scroll chaotic attractor."
+      },
+      "preview": "10–14s 多涡旋轨迹"
+    },
+    {
+      "id": "perlin_flow_field",
+      "name": {
+        "zh-Hans": "Perlin 流场",
+        "en": "Perlin Flow Field"
+      },
+      "category": [
+        "Dynamics",
+        "Particles"
+      ],
+      "formula": "v(x,y) = (cos θ, sin θ), θ = noise(x,y,t) · 2π",
+      "params": [
+        "Scale (0.1–2.0, default 0.6)",
+        "Speed (0.1–2.0, default 0.8)",
+        "Curl (0.0–1.0, default 0.5)"
+      ],
+      "mapping": "velocity/trajectory ← v(x,y)",
+      "teaching_semantics": {
+        "zh-Hans": "展示噪声场驱动的流动结构",
+        "en": "Shows flow structures driven by noise fields."
+      },
+      "preview": "8–12s 流线纹理"
+    },
+    {
+      "id": "reaction_diffusion_gray_scott",
+      "name": {
+        "zh-Hans": "反应-扩散（Gray-Scott）",
+        "en": "Reaction-Diffusion (Gray-Scott)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "du/dt = D_u ∇²u - u v^2 + F(1-u), dv/dt = D_v ∇²v + u v^2 - (F + k)v",
+      "params": [
+        "D_u (0.1–1.0, default 0.16)",
+        "D_v (0.02–0.8, default 0.08)",
+        "F (feed, 0.02–0.08, default 0.036)",
+        "k (kill, 0.03–0.07, default 0.065)"
+      ],
+      "mapping": "color/texture ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示局部反应与扩散形成的自组织纹理",
+        "en": "Shows self-organized textures formed by local reaction and diffusion."
+      },
+      "preview": "10–14s 纹理生成与演化"
+    },
+    {
+      "id": "simplified_fluid_flow",
+      "name": {
+        "zh-Hans": "简化流体流动",
+        "en": "Simplified Fluid Flow"
+      },
+      "category": [
+        "Dynamics",
+        "Particles"
+      ],
+      "formula": "∂v/∂t = - (v · ∇) v + ν ∇²v + f",
+      "params": [
+        "ν (viscosity, 0.0005–0.01, default 0.002)",
+        "Dissipation (0.8–1.0, default 0.95)",
+        "Force (0.1–2.0, default 1.0)"
+      ],
+      "mapping": "velocity/trajectory ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示流体速度场的平滑与卷动",
+        "en": "Shows smoothing and swirling in a fluid velocity field."
+      },
+      "preview": "8–12s 流线缓慢旋涡"
+    },
+    {
+      "id": "fourier_transform_continuous",
+      "name": {
+        "zh-Hans": "傅里叶变换（Continuous）",
+        "en": "Fourier Transform (Continuous)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "F(\\omega) = \\int_{-\\infty}^{\\infty} f(t) e^{-i \\omega t} \\, dt",
+      "params": [
+        "Range (0.5–8.0, default 4.0)",
+        "Resolution (64–1024, default 256)",
+        "Smoothing (0.0–0.9, default 0.3)"
+      ],
+      "mapping": "frequency ← \\omega, height ← |F(\\omega)|, color ← arg(F(\\omega))",
+      "teaching_semantics": {
+        "zh-Hans": "展示时域信号在频域的能量分布",
+        "en": "Shows Fourier Transform (Continuous)."
+      },
+      "preview": "6–10s 频谱起伏"
+    },
+    {
+      "id": "laplace_transform",
+      "name": {
+        "zh-Hans": "拉普拉斯变换",
+        "en": "Laplace Transform"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "F(s) = \\int_0^{\\infty} f(t)e^{-st} \\, dt",
+      "params": [
+        "Sigma (0.1–2.0, default 0.6)",
+        "Omega Range (0.5–8.0, default 4.0)",
+        "Resolution (64–512, default 256)"
+      ],
+      "mapping": "s-plane ← (σ, \\omega), color ← |F(s)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示时间信号在复频域的衰减与振荡特征",
+        "en": "Shows Laplace Transform."
+      },
+      "preview": "8–12s 复平面热力分布"
+    },
+    {
+      "id": "inverse_laplace_transform",
+      "name": {
+        "zh-Hans": "逆拉普拉斯变换",
+        "en": "Inverse Laplace Transform"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "f(t) = \\mathcal{L}^{-1}\\{F(s)\\}",
+      "params": [
+        "Sigma (0.1–2.0, default 0.6)",
+        "Duration (2–10, default 6)",
+        "Resolution (128–1024, default 512)"
+      ],
+      "mapping": "time ← t, height ← f(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示从复频域重建时间信号",
+        "en": "Shows Inverse Laplace Transform."
+      },
+      "preview": "6–10s 信号重建波形"
+    },
+    {
+      "id": "z_transform",
+      "name": {
+        "zh-Hans": "Z 变换",
+        "en": "Z Transform"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "X(z) = \\sum_{n=-\\infty}^{\\infty} x[n] z^{-n}",
+      "params": [
+        "Radius (0.5–1.5, default 1.0)",
+        "Angle Steps (32–512, default 128)",
+        "Sequence Length (32–512, default 128)"
+      ],
+      "mapping": "z-plane ← (r, \\theta), color ← |X(z)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示离散序列在 z 平面的响应分布",
+        "en": "Shows Z Transform."
+      },
+      "preview": "8–12s 圆环响应纹理"
+    },
+    {
+      "id": "convolution_operation",
+      "name": {
+        "zh-Hans": "卷积",
+        "en": "Convolution"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "(f * g)(t) = \\int_{-\\infty}^{\\infty} f(\\tau) g(t-\\tau) \\, d\\tau",
+      "params": [
+        "Kernel Width (0.1–2.0, default 0.6)",
+        "Signal Mix (0.0–1.0, default 0.5)",
+        "Resolution (64–512, default 256)"
+      ],
+      "mapping": "time ← t, height ← (f*g)(t), overlay ← f(t), g(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示卷积如何平滑或改变信号形态",
+        "en": "Shows Convolution."
+      },
+      "preview": "6–10s 滑动核与输出波形"
+    },
+    {
+      "id": "heat_equation",
+      "name": {
+        "zh-Hans": "热传导方程",
+        "en": "Heat Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{\\partial u}{\\partial t} = \\alpha \\nabla^2 u",
+      "params": [
+        "α (0.1–2.0, default 0.6)",
+        "Resolution (64–256, default 128)",
+        "Time Step (0.01–0.1, default 0.03)",
+        "Init Pattern (spot/stripe/random, default spot)"
+      ],
+      "mapping": "color/height ← u(x,y,t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示热量从局部向周围扩散",
+        "en": "Shows Heat Equation."
+      },
+      "preview": "8–12s 热斑扩散"
+    },
+    {
+      "id": "wave_equation",
+      "name": {
+        "zh-Hans": "波动方程",
+        "en": "Wave Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{\\partial^2 u}{\\partial t^2} = c^2 \\nabla^2 u",
+      "params": [
+        "c (0.5–3.0, default 1.2)",
+        "Resolution (64–256, default 128)",
+        "Init Pattern (pulse/ripple/stripe, default ripple)"
+      ],
+      "mapping": "height ← u(x,y,t), color ← \\partial u/\\partial t",
+      "teaching_semantics": {
+        "zh-Hans": "展示波动在介质中的传播",
+        "en": "Shows Wave Equation."
+      },
+      "preview": "8–12s 波纹传播"
+    },
+    {
+      "id": "laplace_equation",
+      "name": {
+        "zh-Hans": "拉普拉斯方程",
+        "en": "Laplace Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\nabla^2 u = 0",
+      "params": [
+        "Resolution (64–256, default 128)",
+        "Iterations (100–2000, default 600)",
+        "Boundary Type (fixed/gradient, default fixed)"
+      ],
+      "mapping": "color/height ← u(x,y)",
+      "teaching_semantics": {
+        "zh-Hans": "展示稳态场在边界条件下的分布",
+        "en": "Shows Laplace Equation."
+      },
+      "preview": "6–10s 稳态场平滑成形"
+    },
+    {
+      "id": "poisson_equation",
+      "name": {
+        "zh-Hans": "泊松方程",
+        "en": "Poisson Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\nabla^2 u = f",
+      "params": [
+        "Source Strength (0.1–2.0, default 0.8)",
+        "Source Count (1–5, default 2)",
+        "Resolution (64–256, default 128)",
+        "Iterations (100–2000, default 600)"
+      ],
+      "mapping": "color/height ← u(x,y), markers ← f",
+      "teaching_semantics": {
+        "zh-Hans": "展示源项驱动的势场分布",
+        "en": "Shows Poisson Equation."
+      },
+      "preview": "6–10s 势场盆地叠加"
+    },
+    {
+      "id": "continuity_equation",
+      "name": {
+        "zh-Hans": "连续性方程",
+        "en": "Continuity Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\mathbf{v}) = 0",
+      "params": [
+        "Speed (0.2–2.0, default 1.0)",
+        "Resolution (64–256, default 128)",
+        "Velocity Field (swirl/flow/shear, default swirl)",
+        "Init Density (blob/stripe/random, default blob)"
+      ],
+      "mapping": "density ← \\rho, flow ← \\mathbf{v}",
+      "teaching_semantics": {
+        "zh-Hans": "展示密度随速度场搬运与守恒",
+        "en": "Shows Continuity Equation."
+      },
+      "preview": "8–12s 密度随流场迁移"
+    },
+    {
+      "id": "newton_second_law",
+      "name": {
+        "zh-Hans": "牛顿 Second Law",
+        "en": "Newton's Second Law"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "F = m a",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "a (0.1–3.0, default 1.0)"
+      ],
+      "mapping": "force vector length ← F, acceleration ← a",
+      "teaching_semantics": {
+        "zh-Hans": "展示质量与加速度决定受力大小",
+        "en": "Shows Newton's Second Law."
+      },
+      "preview": "6–10s 受力矢量与加速度变化"
+    },
+    {
+      "id": "uniform_motion",
+      "name": {
+        "zh-Hans": "匀速运动",
+        "en": "Uniform Motion"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v = \\frac{s}{t}",
+      "params": [
+        "s (0.5–5.0, default 2.0)",
+        "t (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "position ← s(t), speed ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示匀速运动的位移随时间线性变化",
+        "en": "Shows Uniform Motion."
+      },
+      "preview": "6–10s 匀速直线移动"
+    },
+    {
+      "id": "acceleration_from_delta_v",
+      "name": {
+        "zh-Hans": "加速度",
+        "en": "Acceleration"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "a = \\frac{\\Delta v}{t}",
+      "params": [
+        "\\Delta v (0.2–3.0, default 1.0)",
+        "t (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "velocity ramp ← v(t), slope ← a",
+      "teaching_semantics": {
+        "zh-Hans": "展示速度变化率决定加速度",
+        "en": "Shows Acceleration."
+      },
+      "preview": "6–10s 速度线性爬升"
+    },
+    {
+      "id": "kinematics_velocity",
+      "name": {
+        "zh-Hans": "Kinematics（速度）",
+        "en": "Kinematics (Velocity)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v = u + a t",
+      "params": [
+        "u (0.0–2.0, default 0.5)",
+        "a (0.0–2.0, default 0.8)",
+        "t (0–5, default 3)"
+      ],
+      "mapping": "velocity ← v(t), color ← a",
+      "teaching_semantics": {
+        "zh-Hans": "展示恒定加速度下速度随时间变化",
+        "en": "Shows Kinematics (Velocity)."
+      },
+      "preview": "6–10s 速度折线"
+    },
+    {
+      "id": "kinematics_displacement",
+      "name": {
+        "zh-Hans": "Kinematics（位移）",
+        "en": "Kinematics (Displacement)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "s = u t + \\frac{1}{2} a t^2",
+      "params": [
+        "u (0.0–2.0, default 0.5)",
+        "a (0.0–2.0, default 0.8)",
+        "t (0–5, default 3)"
+      ],
+      "mapping": "position ← s(t), curvature ← a",
+      "teaching_semantics": {
+        "zh-Hans": "展示恒定加速度下位移的抛物线增长",
+        "en": "Shows Kinematics (Displacement)."
+      },
+      "preview": "6–10s 抛物线轨迹"
+    },
+    {
+      "id": "kinematics_speed_displacement",
+      "name": {
+        "zh-Hans": "Kinematics（速度-位移）",
+        "en": "Kinematics (Speed-Displacement)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v^2 = u^2 + 2 a s",
+      "params": [
+        "u (0.0–2.0, default 0.5)",
+        "a (0.0–2.0, default 0.8)",
+        "s (0–5, default 3)"
+      ],
+      "mapping": "speed ← v, position ← s",
+      "teaching_semantics": {
+        "zh-Hans": "展示速度与位移在恒定加速度下的关系",
+        "en": "Shows Kinematics (Speed-Displacement)."
+      },
+      "preview": "6–10s 速度-位移曲线"
+    },
+    {
+      "id": "momentum",
+      "name": {
+        "zh-Hans": "动量",
+        "en": "Momentum"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "p = m v",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "v (0.2–5.0, default 1.2)"
+      ],
+      "mapping": "momentum vector length ← p",
+      "teaching_semantics": {
+        "zh-Hans": "展示质量和速度共同决定动量",
+        "en": "Shows Momentum."
+      },
+      "preview": "6–10s 动量向量变化"
+    },
+    {
+      "id": "impulse",
+      "name": {
+        "zh-Hans": "冲量",
+        "en": "Impulse"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "J = F \\times t",
+      "params": [
+        "F (0.2–5.0, default 1.2)",
+        "t (0.2–4.0, default 1.5)"
+      ],
+      "mapping": "area under force-time ← J",
+      "teaching_semantics": {
+        "zh-Hans": "展示冲量等于力在时间上的累积",
+        "en": "Shows Impulse."
+      },
+      "preview": "6–10s 力-时间面积高亮"
+    },
+    {
+      "id": "work",
+      "name": {
+        "zh-Hans": "功",
+        "en": "Work"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "W = F \\times s",
+      "params": [
+        "F (0.2–5.0, default 1.2)",
+        "s (0.2–5.0, default 2.0)"
+      ],
+      "mapping": "work bar ← W, displacement ← s",
+      "teaching_semantics": {
+        "zh-Hans": "展示力沿位移做功的大小",
+        "en": "Shows Work."
+      },
+      "preview": "6–10s 功能量条增长"
+    },
+    {
+      "id": "power",
+      "name": {
+        "zh-Hans": "功率",
+        "en": "Power"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "P = \\frac{W}{t}",
+      "params": [
+        "W (0.5–5.0, default 2.0)",
+        "t (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "power gauge ← P",
+      "teaching_semantics": {
+        "zh-Hans": "展示做功速率随时间变化",
+        "en": "Shows Power."
+      },
+      "preview": "6–10s 功率指针变化"
+    },
+    {
+      "id": "kinetic_energy",
+      "name": {
+        "zh-Hans": "动能能量",
+        "en": "Kinetic Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_k = \\frac{1}{2} m v^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "v (0.2–5.0, default 1.2)"
+      ],
+      "mapping": "energy bar ← E_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示速度平方对动能的影响",
+        "en": "Shows Kinetic Energy."
+      },
+      "preview": "6–10s 动能条变化"
+    },
+    {
+      "id": "potential_energy",
+      "name": {
+        "zh-Hans": "势能能量",
+        "en": "Potential Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_p = m g h",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "h (0.2–5.0, default 2.0)",
+        "g (9.8–9.8, default 9.8)"
+      ],
+      "mapping": "height ← h, energy bar ← E_p",
+      "teaching_semantics": {
+        "zh-Hans": "展示高度与重力势能的关系",
+        "en": "Shows Potential Energy."
+      },
+      "preview": "6–10s 高度升降与能量变化"
+    },
+    {
+      "id": "centripetal_motion",
+      "name": {
+        "zh-Hans": "向心运动",
+        "en": "Centripetal Motion"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "a_c = \\frac{v^2}{r}, \\quad F_c = \\frac{m v^2}{r}",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "v (0.5–5.0, default 1.5)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "circular path radius ← r, inward force ← F_c",
+      "teaching_semantics": {
+        "zh-Hans": "展示圆周运动的向心加速度与向心力",
+        "en": "Shows Centripetal Motion."
+      },
+      "preview": "8–12s 圆周轨迹与向心矢量"
+    },
+    {
+      "id": "weight_near_earth",
+      "name": {
+        "zh-Hans": "Weight（近地）",
+        "en": "Weight (Near Earth)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "F_g = m g",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "g (9.8–9.8, default 9.8)"
+      ],
+      "mapping": "downward force ← F_g",
+      "teaching_semantics": {
+        "zh-Hans": "展示质量决定重力大小",
+        "en": "Shows Weight (Near Earth)."
+      },
+      "preview": "6–10s 重力矢量随质量变化"
+    },
+    {
+      "id": "universal_gravitation",
+      "name": {
+        "zh-Hans": "万有引力",
+        "en": "Universal Gravitation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "F = G\\frac{m_1 m_2}{r^2}",
+      "params": [
+        "m_1 (0.2–5.0, default 1.2)",
+        "m_2 (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "attraction force ← F, orbit radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示万有引力随距离平方衰减",
+        "en": "Shows Universal Gravitation."
+      },
+      "preview": "8–12s 吸引轨迹与力场衰减"
+    },
+    {
+      "id": "friction",
+      "name": {
+        "zh-Hans": "摩擦",
+        "en": "Friction"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "f = \\mu N",
+      "params": [
+        "\\mu (0.0–1.2, default 0.4)",
+        "N (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "opposing force ← f",
+      "teaching_semantics": {
+        "zh-Hans": "展示法向力与摩擦系数决定摩擦力",
+        "en": "Shows Friction."
+      },
+      "preview": "6–10s 运动阻滞与摩擦变化"
+    },
+    {
+      "id": "work_energy_theorem",
+      "name": {
+        "zh-Hans": "功-能定理",
+        "en": "Work-Energy Theorem"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Delta E_k = W_{\\text{外}}",
+      "params": [
+        "W (0.2–5.0, default 1.5)",
+        "E_k (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "energy bar ← E_k, work input ← W",
+      "teaching_semantics": {
+        "zh-Hans": "展示外力做功等于动能变化",
+        "en": "Shows Work-Energy Theorem."
+      },
+      "preview": "6–10s 动能随做功变化"
+    },
+    {
+      "id": "mechanical_energy",
+      "name": {
+        "zh-Hans": "机械能量",
+        "en": "Mechanical Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_{\\text{总}} = E_k + E_p",
+      "params": [
+        "E_k (0.2–5.0, default 1.0)",
+        "E_p (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "stacked energy ← E_k + E_p",
+      "teaching_semantics": {
+        "zh-Hans": "展示动能与势能构成总机械能",
+        "en": "Shows Mechanical Energy."
+      },
+      "preview": "6–10s 能量条叠加变化"
+    },
+    {
+      "id": "momentum_conservation",
+      "name": {
+        "zh-Hans": "动量守恒",
+        "en": "Momentum Conservation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\sum \\mathbf{p}_{\\text{初}}=\\sum \\mathbf{p}_{\\text{末}}",
+      "params": [
+        "m_1 (0.2–5.0, default 1.2)",
+        "v_1 (0.2–5.0, default 1.0)",
+        "m_2 (0.2–5.0, default 1.0)",
+        "v_2 (0.2–5.0, default 1.2)"
+      ],
+      "mapping": "momentum vectors ← \\mathbf{p}, collision outcome ← \\sum \\mathbf{p}",
+      "teaching_semantics": {
+        "zh-Hans": "展示系统总动量在相互作用前后保持不变",
+        "en": "Shows Momentum Conservation."
+      },
+      "preview": "8–12s 碰撞前后动量守恒"
+    },
+    {
+      "id": "elastic_collision_1d",
+      "name": {
+        "zh-Hans": "弹性碰撞（1D）",
+        "en": "Elastic Collision (1D)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_1 v_1 + m_2 v_2 = m_1 v_1' + m_2 v_2', \\quad \\frac{1}{2}m_1 v_1^2 + \\frac{1}{2}m_2 v_2^2 = \\frac{1}{2}m_1 v_1'^2 + \\frac{1}{2}m_2 v_2'^2",
+      "params": [
+        "m_1 (0.2–5.0, default 1.0)",
+        "m_2 (0.2–5.0, default 1.0)",
+        "v_1 (0.2–5.0, default 1.5)",
+        "v_2 (0.0–3.0, default 0.5)"
+      ],
+      "mapping": "pre/post velocity vectors ← v, v'",
+      "teaching_semantics": {
+        "zh-Hans": "展示弹性碰撞中动量与动能同时守恒",
+        "en": "Shows Elastic Collision (1D)."
+      },
+      "preview": "8–12s 两物体碰撞前后速度对比"
+    },
+    {
+      "id": "inelastic_collision_1d",
+      "name": {
+        "zh-Hans": "非弹性碰撞（1D）",
+        "en": "Inelastic Collision (1D)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_1 v_1 + m_2 v_2 = (m_1 + m_2) v'",
+      "params": [
+        "m_1 (0.2–5.0, default 1.0)",
+        "m_2 (0.2–5.0, default 1.0)",
+        "v_1 (0.2–5.0, default 1.5)",
+        "v_2 (0.0–3.0, default 0.5)"
+      ],
+      "mapping": "pre/post velocity vectors ← v, v'",
+      "teaching_semantics": {
+        "zh-Hans": "展示非弹性碰撞中动量守恒、速度趋同",
+        "en": "Shows Inelastic Collision (1D)."
+      },
+      "preview": "8–12s 两物体合并后同速运动"
+    },
+    {
+      "id": "angular_momentum",
+      "name": {
+        "zh-Hans": "角动量",
+        "en": "Angular Momentum"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "L = I \\omega",
+      "params": [
+        "I (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "angular momentum ← L, rotation speed ← \\omega",
+      "teaching_semantics": {
+        "zh-Hans": "展示转动惯量与角速度决定角动量",
+        "en": "Shows Angular Momentum."
+      },
+      "preview": "6–10s 转动速度变化与角动量条"
+    },
+    {
+      "id": "torque",
+      "name": {
+        "zh-Hans": "力矩",
+        "en": "Torque"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\tau = I \\alpha",
+      "params": [
+        "I (0.2–5.0, default 1.0)",
+        "\\alpha (0.2–5.0, default 1.2)"
+      ],
+      "mapping": "torque ← \\tau, angular acceleration ← \\alpha",
+      "teaching_semantics": {
+        "zh-Hans": "展示转动惯量与角加速度决定力矩",
+        "en": "Shows Torque."
+      },
+      "preview": "6–10s 力矩与角加速度变化"
+    },
+    {
+      "id": "rotational_kinetic_energy",
+      "name": {
+        "zh-Hans": "旋转al 动能能量",
+        "en": "Rotational Kinetic Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_r = \\frac{1}{2} I \\omega^2",
+      "params": [
+        "I (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "energy bar ← E_r",
+      "teaching_semantics": {
+        "zh-Hans": "展示角速度平方对转动动能的影响",
+        "en": "Shows Rotational Kinetic Energy."
+      },
+      "preview": "6–10s 转动动能条变化"
+    },
+    {
+      "id": "moment_of_inertia_point",
+      "name": {
+        "zh-Hans": "转动惯量（Point 质量）",
+        "en": "Moment of Inertia (Point Mass)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.2–5.0, default 1.5)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示质量与半径对转动惯量的影响",
+        "en": "Shows Moment of Inertia (Point Mass)."
+      },
+      "preview": "6–10s 半径变化与惯量变化"
+    },
+    {
+      "id": "mechanical_energy_conservation",
+      "name": {
+        "zh-Hans": "机械能守恒",
+        "en": "Mechanical Energy Conservation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_k + E_p = \\text{常数}",
+      "params": [
+        "E_k (0.2–5.0, default 1.0)",
+        "E_p (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "stacked energy ← E_k + E_p, const line ← E_{\\text{total}}",
+      "teaching_semantics": {
+        "zh-Hans": "展示动能与势能总和保持不变",
+        "en": "Shows Mechanical Energy Conservation."
+      },
+      "preview": "8–12s 能量互换与总量恒定"
+    },
+    {
+      "id": "moment_of_inertia_disk",
+      "name": {
+        "zh-Hans": "转动惯量（实心圆盘）",
+        "en": "Moment of Inertia (Solid Disk)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{1}{2} m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.2–5.0, default 1.5)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示圆盘转动惯量随半径平方增长",
+        "en": "Shows Moment of Inertia (Solid Disk)."
+      },
+      "preview": "6–10s 圆盘旋转与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_rod_end",
+      "name": {
+        "zh-Hans": "转动惯量（杆, 绕端点）",
+        "en": "Moment of Inertia (Rod, About End)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{1}{3} m L^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "L (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, length ← L",
+      "teaching_semantics": {
+        "zh-Hans": "展示杆绕端点转动的惯量与长度平方关系",
+        "en": "Shows Moment of Inertia (Rod, About End)."
+      },
+      "preview": "6–10s 杆旋转半径变化"
+    },
+    {
+      "id": "angular_momentum_conservation",
+      "name": {
+        "zh-Hans": "角动量守恒",
+        "en": "Angular Momentum Conservation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "L = I\\omega = \\text{常数}",
+      "params": [
+        "I (0.2–5.0, default 2.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "angular momentum ← L, rotation speed ← \\omega",
+      "teaching_semantics": {
+        "zh-Hans": "展示转动惯量改变导致角速度反向变化",
+        "en": "Shows Angular Momentum Conservation."
+      },
+      "preview": "6–10s 收缩/展开导致转速变化"
+    },
+    {
+      "id": "rotational_equations_of_motion",
+      "name": {
+        "zh-Hans": "旋转al 方程s of 运动",
+        "en": "Rotational Equations of Motion"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\omega = \\omega_0 + \\alpha t, \\quad \\theta = \\omega_0 t + \\frac{1}{2}\\alpha t^2, \\quad \\omega^2 = \\omega_0^2 + 2\\alpha\\theta",
+      "params": [
+        "\\omega_0 (0–4.0, default 1.0)",
+        "\\alpha (0–3.0, default 0.8)",
+        "t (0–6, default 3)"
+      ],
+      "mapping": "angle ← \\theta(t), angular speed ← \\omega(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示恒角加速度下转动运动的时间关系",
+        "en": "Shows Rotational Equations of Motion."
+      },
+      "preview": "8–12s 角度与角速度曲线同步"
+    },
+    {
+      "id": "moment_of_inertia_rod_center",
+      "name": {
+        "zh-Hans": "转动惯量（杆, 绕中心）",
+        "en": "Moment of Inertia (Rod, About Center)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{1}{12} m L^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "L (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, length ← L",
+      "teaching_semantics": {
+        "zh-Hans": "展示细杆绕中心转动的惯量与长度平方关系",
+        "en": "Shows Moment of Inertia (Rod, About Center)."
+      },
+      "preview": "6–10s 细杆转动与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_hoop",
+      "name": {
+        "zh-Hans": "转动惯量（圆环）",
+        "en": "Moment of Inertia (Hoop)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示圆环转动惯量与半径平方关系",
+        "en": "Shows Moment of Inertia (Hoop)."
+      },
+      "preview": "6–10s 圆环旋转与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_solid_sphere",
+      "name": {
+        "zh-Hans": "转动惯量（实心球）",
+        "en": "Moment of Inertia (Solid Sphere)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{2}{5} m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示实心球转动惯量与半径平方关系",
+        "en": "Shows Moment of Inertia (Solid Sphere)."
+      },
+      "preview": "6–10s 球体转动与惯量变化"
+    },
+    {
+      "id": "angular_momentum_conservation_zero_torque",
+      "name": {
+        "zh-Hans": "角动量守恒（零力矩）",
+        "en": "Angular Momentum Conservation (Zero Torque)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\tau_{\\text{ext}} = 0 \\Rightarrow L = I\\omega = \\text{常数}",
+      "params": [
+        "I (0.2–5.0, default 2.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "angular momentum ← L, torque indicator ← 0",
+      "teaching_semantics": {
+        "zh-Hans": "展示无外力矩时角动量守恒",
+        "en": "Shows Angular Momentum Conservation (Zero Torque)."
+      },
+      "preview": "6–10s 角速度与惯量反向变化"
+    },
+    {
+      "id": "rotational_dynamics_system",
+      "name": {
+        "zh-Hans": "旋转al 动力学（力矩系统）",
+        "en": "Rotational Dynamics (Torque System)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\sum \\tau = I \\alpha",
+      "params": [
+        "I (0.2–5.0, default 1.0)",
+        "\\alpha (0.2–5.0, default 1.2)",
+        "\\tau (0.2–5.0, default 1.2)"
+      ],
+      "mapping": "torque vectors ← \\tau, angular acceleration ← \\alpha",
+      "teaching_semantics": {
+        "zh-Hans": "展示外力矩合力决定角加速度",
+        "en": "Shows Rotational Dynamics (Torque System)."
+      },
+      "preview": "6–10s 多力矩合成与角加速度变化"
+    },
+    {
+      "id": "moment_of_inertia_thin_disk",
+      "name": {
+        "zh-Hans": "转动惯量（薄圆盘）",
+        "en": "Moment of Inertia (Thin Disk)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{1}{2} m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示薄圆盘绕中心轴转动的惯量",
+        "en": "Shows Moment of Inertia (Thin Disk)."
+      },
+      "preview": "6–10s 薄圆盘旋转与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_spherical_shell",
+      "name": {
+        "zh-Hans": "转动惯量（Spherical 球壳）",
+        "en": "Moment of Inertia (Spherical Shell)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{2}{3} m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示球壳转动惯量与半径平方关系",
+        "en": "Shows Moment of Inertia (Spherical Shell)."
+      },
+      "preview": "6–10s 球壳旋转与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_solid_cylinder",
+      "name": {
+        "zh-Hans": "转动惯量（实心圆柱）",
+        "en": "Moment of Inertia (Solid Cylinder)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = \\frac{1}{2} m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示实心圆柱绕中心轴转动的惯量",
+        "en": "Shows Moment of Inertia (Solid Cylinder)."
+      },
+      "preview": "6–10s 圆柱旋转与惯量变化"
+    },
+    {
+      "id": "moment_of_inertia_thin_cylinder",
+      "name": {
+        "zh-Hans": "转动惯量（薄壁圆柱）",
+        "en": "Moment of Inertia (Thin-Walled Cylinder)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I = m r^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "inertia ← I, radius ← r",
+      "teaching_semantics": {
+        "zh-Hans": "展示薄圆柱（圆环）转动惯量与半径平方关系",
+        "en": "Shows Moment of Inertia (Thin-Walled Cylinder)."
+      },
+      "preview": "6–10s 薄圆柱旋转与惯量变化"
+    },
+    {
+      "id": "rigid_body_kinetic_energy",
+      "name": {
+        "zh-Hans": "刚体动能能量（平动 + 旋转）",
+        "en": "Rigid Body Kinetic Energy (Translation + Rotation)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "T = \\frac{1}{2} m v_{cm}^2 + \\frac{1}{2} I_{cm} \\omega^2",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "v_{cm} (0.2–5.0, default 1.2)",
+        "I_{cm} (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "energy bars ← T_{trans}, T_{rot}, total ← T",
+      "teaching_semantics": {
+        "zh-Hans": "展示刚体平动与转动动能的叠加",
+        "en": "Shows Rigid Body Kinetic Energy (Translation + Rotation)."
+      },
+      "preview": "8–12s 平动/转动能量条同步"
+    },
+    {
+      "id": "rolling_energy_conservation",
+      "name": {
+        "zh-Hans": "无滑动滚动（能量守恒）",
+        "en": "Rolling Without Slipping (Energy Conservation)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{1}{2} m v^2 + \\frac{1}{2} I \\omega^2 + m g h = \\text{常数}, \\quad v = \\omega R",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "I (0.2–5.0, default 1.0)",
+        "R (0.5–3.0, default 1.0)",
+        "h (0–3.0, default 1.0)"
+      ],
+      "mapping": "energy stack ← E_k + E_r + E_p, speed ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示滚动过程中的平动、转动与势能转换",
+        "en": "Shows Rolling Without Slipping (Energy Conservation)."
+      },
+      "preview": "8–12s 斜坡滚动与能量互换"
+    },
+    {
+      "id": "rolling_collision_angular_momentum",
+      "name": {
+        "zh-Hans": "滚动碰撞（角动量守恒）",
+        "en": "Rolling Collision (Angular Momentum Conservation)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I_1 \\omega_1 + I_2 \\omega_2 = I_1 \\omega_1' + I_2 \\omega_2'",
+      "params": [
+        "I_1 (0.2–5.0, default 1.2)",
+        "I_2 (0.2–5.0, default 1.0)",
+        "\\omega_1 (0.5–6.0, default 2.0)",
+        "\\omega_2 (0.0–4.0, default 1.0)"
+      ],
+      "mapping": "angular momentum vectors ← L, pre/post ← \\omega, \\omega'",
+      "teaching_semantics": {
+        "zh-Hans": "展示滚动系统碰撞中的角动量守恒",
+        "en": "Shows Rolling Collision (Angular Momentum Conservation)."
+      },
+      "preview": "8–12s 滚动物体碰撞前后角速度变化"
+    },
+    {
+      "id": "rolling_impact_energy_angular_momentum",
+      "name": {
+        "zh-Hans": "滚动 + 冲击（能量 & 角动量）",
+        "en": "Rolling + Impact (Energy & Angular Momentum)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "E_{\\text{before}} \\neq E_{\\text{after}}, \\quad L_{\\text{before}} = L_{\\text{after}}",
+      "params": [
+        "E_loss (0.0–0.8, default 0.2)",
+        "I (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "energy bar drop ← E_loss, angular momentum ← L",
+      "teaching_semantics": {
+        "zh-Hans": "展示碰撞中能量损失但角动量可守恒",
+        "en": "Shows Rolling + Impact (Energy & Angular Momentum)."
+      },
+      "preview": "8–12s 能量下降与角动量保持"
+    },
+    {
+      "id": "gyroscopic_precession",
+      "name": {
+        "zh-Hans": "陀螺进动",
+        "en": "Gyroscopic Precession"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Omega = \\frac{\\tau}{L}",
+      "params": [
+        "\\tau (0.2–5.0, default 1.2)",
+        "L (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "precession rate ← \\Omega, axis tilt ← \\tau",
+      "teaching_semantics": {
+        "zh-Hans": "展示陀螺在外力矩下的进动",
+        "en": "Shows Gyroscopic Precession."
+      },
+      "preview": "8–12s 进动圆锥轨迹"
+    },
+    {
+      "id": "angular_velocity_vector",
+      "name": {
+        "zh-Hans": "角速度 Vector",
+        "en": "Angular Velocity Vector"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\mathbf{\\omega} = \\omega \\hat{\\mathbf{n}}",
+      "params": [
+        "\\omega (0.5–6.0, default 2.0)",
+        "Axis Tilt (0–\\pi/2, default 0.4)"
+      ],
+      "mapping": "vector direction ← \\hat{\\mathbf{n}}, length ← \\omega",
+      "teaching_semantics": {
+        "zh-Hans": "展示角速度矢量的方向与大小",
+        "en": "Shows Angular Velocity Vector."
+      },
+      "preview": "6–10s 轴向矢量旋转显示"
+    },
+    {
+      "id": "euler_rotation_equation",
+      "name": {
+        "zh-Hans": "欧拉旋转方程",
+        "en": "Euler's Rotation Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{d\\mathbf{L}}{dt} + \\mathbf{\\omega} \\times \\mathbf{L} = \\mathbf{\\tau}",
+      "params": [
+        "\\omega (0.5–6.0, default 2.0)",
+        "L (0.5–6.0, default 2.0)",
+        "\\tau (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "vectors ← \\mathbf{L}, \\mathbf{\\omega}, \\mathbf{\\tau}",
+      "teaching_semantics": {
+        "zh-Hans": "展示角动量变化与角速度、力矩的矢量关系",
+        "en": "Shows Euler's Rotation Equation."
+      },
+      "preview": "8–12s 矢量旋转与进动"
+    },
+    {
+      "id": "fixed_axis_rotation_equations",
+      "name": {
+        "zh-Hans": "Fixed-Axis 旋转方程s",
+        "en": "Fixed-Axis Rotation Equations"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\theta = \\theta_0 + \\omega_0 t + \\frac{1}{2}\\alpha t^2, \\quad \\omega = \\omega_0 + \\alpha t, \\quad \\omega^2 = \\omega_0^2 + 2\\alpha(\\theta - \\theta_0)",
+      "params": [
+        "\\omega_0 (0–4.0, default 1.0)",
+        "\\alpha (0–3.0, default 0.8)",
+        "t (0–6, default 3)"
+      ],
+      "mapping": "angle ← \\theta(t), angular speed ← \\omega(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示定轴转动的角位移与角速度关系",
+        "en": "Shows Fixed-Axis Rotation Equations."
+      },
+      "preview": "8–12s 角位移与角速度同步曲线"
+    },
+    {
+      "id": "gyroscopic_nutation",
+      "name": {
+        "zh-Hans": "陀螺章动",
+        "en": "Gyroscopic Nutation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\theta(t) = \\theta_0 + \\Delta \\theta \\cos(\\omega_n t)",
+      "params": [
+        "\\theta_0 (0.1–1.0, default 0.4)",
+        "\\Delta \\theta (0.05–0.5, default 0.2)",
+        "\\omega_n (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "tilt angle ← \\theta(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示陀螺转轴的章动摆动",
+        "en": "Shows Gyroscopic Nutation."
+      },
+      "preview": "8–12s 轴线摆动锥面"
+    },
+    {
+      "id": "precession_rate_gravity_torque",
+      "name": {
+        "zh-Hans": "Precession Rate（Gravity 力矩近似）",
+        "en": "Precession Rate (Gravity Torque Approx.)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Omega \\approx \\frac{m g \\ell}{I \\omega}",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "g (9.8–9.8, default 9.8)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "I (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)"
+      ],
+      "mapping": "precession rate ← \\Omega, torque arm ← \\ell",
+      "teaching_semantics": {
+        "zh-Hans": "展示重力矩作用下的近似进动频率",
+        "en": "Shows Precession Rate (Gravity Torque Approx.)."
+      },
+      "preview": "8–12s 进动速度随参数变化"
+    },
+    {
+      "id": "euler_angle_kinematics",
+      "name": {
+        "zh-Hans": "欧拉 Angle Kinematics（刚体）",
+        "en": "Euler Angle Kinematics (Rigid Body)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\omega^2 = \\dot{\\phi}^2 \\sin^2\\theta + \\dot{\\theta}^2 + (\\dot{\\psi} + \\dot{\\phi}\\cos\\theta)^2",
+      "params": [
+        "\\dot{\\phi} (0–4.0, default 1.0)",
+        "\\dot{\\theta} (0–3.0, default 0.6)",
+        "\\dot{\\psi} (0–6.0, default 2.0)",
+        "\\theta (0.1–1.4, default 0.6)"
+      ],
+      "mapping": "angular speed ← \\omega, axes ← (\\phi,\\theta,\\psi)",
+      "teaching_semantics": {
+        "zh-Hans": "展示欧拉角与角速度大小的关系",
+        "en": "Shows Euler Angle Kinematics (Rigid Body)."
+      },
+      "preview": "8–12s 欧拉角变化与角速度响应"
+    },
+    {
+      "id": "lagrange_top",
+      "name": {
+        "zh-Hans": "拉格朗日 Top（对称 Top）",
+        "en": "Lagrange Top (Symmetric Top)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I_1 \\dot{\\omega}_1 + (I_3 - I_1)\\omega_2 \\omega_3 = \\tau_1, \\quad I_1 \\dot{\\omega}_2 + (I_1 - I_3)\\omega_1 \\omega_3 = \\tau_2, \\quad I_3 \\dot{\\omega}_3 = \\tau_3",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "\\omega_1 (0–4.0, default 1.0)",
+        "\\omega_2 (0–4.0, default 0.6)",
+        "\\omega_3 (0–8.0, default 3.0)"
+      ],
+      "mapping": "body-frame ω components ← (\\omega_1,\\omega_2,\\omega_3)",
+      "teaching_semantics": {
+        "zh-Hans": "展示对称陀螺在力矩作用下的角速度耦合",
+        "en": "Shows Lagrange Top (Symmetric Top)."
+      },
+      "preview": "10–14s 陀螺进动与章动叠加"
+    },
+    {
+      "id": "gyro_stability_small_angle",
+      "name": {
+        "zh-Hans": "Gyro 稳定性（小角）",
+        "en": "Gyro Stability (Small-Angle)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\omega_3 \\gg \\sqrt{\\frac{m g \\ell}{I_1}}",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "g (9.8–9.8, default 9.8)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "I_1 (0.2–5.0, default 1.0)",
+        "\\omega_3 (0.5–8.0, default 3.0)"
+      ],
+      "mapping": "stability meter ← \\omega_3 / \\sqrt{m g \\ell / I_1}",
+      "teaching_semantics": {
+        "zh-Hans": "展示自旋角速度与重力矩尺度的稳定性条件",
+        "en": "Shows Gyro Stability (Small-Angle)."
+      },
+      "preview": "8–12s 稳定性阈值跨越"
+    },
+    {
+      "id": "euler_angle_dynamics_with_torque",
+      "name": {
+        "zh-Hans": "欧拉 Angle 动力学（含力矩）",
+        "en": "Euler Angle Dynamics (With Torque)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I_1 \\ddot{\\theta} - I_1 \\dot{\\phi}^2 \\sin\\theta \\cos\\theta + I_3 \\dot{\\psi}\\dot{\\phi}\\sin\\theta = \\tau_{\\theta}, \\quad I_1 \\frac{d}{dt}(\\dot{\\phi}\\sin^2\\theta) + I_3 \\dot{\\psi}\\dot{\\theta}\\sin\\theta = \\tau_{\\phi}",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "\\dot{\\phi} (0–4.0, default 1.0)",
+        "\\dot{\\theta} (0–3.0, default 0.6)",
+        "\\dot{\\psi} (0–8.0, default 3.0)",
+        "\\tau_{\\theta} (0–3.0, default 0.4)",
+        "\\tau_{\\phi} (0–3.0, default 0.4)"
+      ],
+      "mapping": "angles ← (\\phi,\\theta,\\psi), torque components ← (\\tau_{\\theta}, \\tau_{\\phi})",
+      "teaching_semantics": {
+        "zh-Hans": "展示欧拉角动力学在外力矩作用下的耦合演化",
+        "en": "Shows Euler Angle Dynamics (With Torque)."
+      },
+      "preview": "10–14s 角度-力矩耦合轨迹"
+    },
+    {
+      "id": "angular_momentum_space_frame",
+      "name": {
+        "zh-Hans": "角动量 in 空间坐标系",
+        "en": "Angular Momentum in Space Frame"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\mathbf{L} = R I_{\\text{body}} R^T \\mathbf{\\omega}",
+      "params": [
+        "I_{\\text{body}} (0.2–5.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)",
+        "Orientation (0–\\pi, default 0.6)"
+      ],
+      "mapping": "space-frame vectors ← \\mathbf{L}, \\mathbf{\\omega}",
+      "teaching_semantics": {
+        "zh-Hans": "展示惯量张量在空间坐标下的角动量表达",
+        "en": "Shows Angular Momentum in Space Frame."
+      },
+      "preview": "8–12s 空间坐标矢量旋转"
+    },
+    {
+      "id": "nutation_precession_relation_approx",
+      "name": {
+        "zh-Hans": "Nutation–Precession Relation（近似）",
+        "en": "Nutation–Precession Relation (Approx.)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\omega_n^2 \\approx \\Omega_p^2 + \\frac{m g \\ell}{I_1} \\cos\\theta_0",
+      "params": [
+        "\\Omega_p (0.2–5.0, default 1.2)",
+        "m (0.2–5.0, default 1.0)",
+        "g (9.8–9.8, default 9.8)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "I_1 (0.2–5.0, default 1.0)",
+        "\\theta_0 (0.1–1.4, default 0.6)"
+      ],
+      "mapping": "nutation freq ← \\omega_n, precession freq ← \\Omega_p",
+      "teaching_semantics": {
+        "zh-Hans": "展示章动频率与进动频率的近似关系",
+        "en": "Shows Nutation–Precession Relation (Approx.)."
+      },
+      "preview": "8–12s 章动-进动频率对比"
+    },
+    {
+      "id": "euler_equations_rigid_body",
+      "name": {
+        "zh-Hans": "欧拉方程s（刚体, 含力矩）",
+        "en": "Euler Equations (Rigid Body, With Torque)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "I_1 \\dot{\\omega}_1 + (I_3 - I_2)\\omega_2\\omega_3 = \\tau_1, \\quad I_2 \\dot{\\omega}_2 + (I_1 - I_3)\\omega_3\\omega_1 = \\tau_2, \\quad I_3 \\dot{\\omega}_3 + (I_2 - I_1)\\omega_1\\omega_2 = \\tau_3",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_2 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "\\omega_1 (0–4.0, default 1.0)",
+        "\\omega_2 (0–4.0, default 0.6)",
+        "\\omega_3 (0–8.0, default 3.0)"
+      ],
+      "mapping": "body-frame ω components ← (\\omega_1,\\omega_2,\\omega_3), torque ← (\\tau_1,\\tau_2,\\tau_3)",
+      "teaching_semantics": {
+        "zh-Hans": "展示一般刚体在力矩作用下的欧拉角速度演化",
+        "en": "Shows Euler Equations (Rigid Body, With Torque)."
+      },
+      "preview": "10–14s 角速度分量耦合轨迹"
+    },
+    {
+      "id": "lagrange_equations_symmetric_top",
+      "name": {
+        "zh-Hans": "拉格朗日方程s（对称 Top, Gravity）",
+        "en": "Lagrange Equations (Symmetric Top, Gravity)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "L=\\frac{1}{2}I_1(\\dot{\\theta}^2+\\dot{\\phi}^2\\sin^2\\theta)+\\frac{1}{2}I_3(\\dot{\\psi}+\\dot{\\phi}\\cos\\theta)^2-m g \\ell \\cos\\theta; \\quad \\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{\\phi}}=0, \\ \\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{\\psi}}=0, \\ \\frac{d}{dt}\\frac{\\partial L}{\\partial \\dot{\\theta}}-\\frac{\\partial L}{\\partial \\theta}=0",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "m (0.2–5.0, default 1.0)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "\\dot{\\phi} (0–4.0, default 1.0)",
+        "\\dot{\\theta} (0–3.0, default 0.6)",
+        "\\dot{\\psi} (0–8.0, default 3.0)"
+      ],
+      "mapping": "Euler angles ← (\\phi,\\theta,\\psi), energy ← T,V",
+      "teaching_semantics": {
+        "zh-Hans": "在对称陀螺、重力矩假设下给出拉格朗日方程形式",
+        "en": "Shows Lagrange Equations (Symmetric Top, Gravity)."
+      },
+      "preview": "10–14s 角度与能量随时间变化"
+    },
+    {
+      "id": "steady_precession_exact",
+      "name": {
+        "zh-Hans": "Steady Precession（精确, 对称 Top）",
+        "en": "Steady Precession (Exact, Symmetric Top)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Omega = \\frac{I_3 \\omega_3 \\pm \\sqrt{I_3^2 \\omega_3^2 - 4 I_1 m g \\ell \\cos\\theta}}{2 I_1 \\cos\\theta}",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "m (0.2–5.0, default 1.0)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "\\omega_3 (0.5–8.0, default 3.0)",
+        "\\theta (0.1–1.4, default 0.6)"
+      ],
+      "mapping": "precession rate ← \\Omega, branch ← (+/-)",
+      "teaching_semantics": {
+        "zh-Hans": "展示匀速进动的精确频率（快/慢分支）",
+        "en": "Shows Steady Precession (Exact, Symmetric Top)."
+      },
+      "preview": "8–12s 两分支频率对比"
+    },
+    {
+      "id": "precession_limits_fast_slow",
+      "name": {
+        "zh-Hans": "Precession Limits（快/慢）",
+        "en": "Precession Limits (Fast/Slow)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Omega_{\\text{slow}} \\approx \\frac{m g \\ell}{I_3 \\omega_3}, \\quad \\Omega_{\\text{fast}} \\approx \\frac{I_3 \\omega_3}{I_1 \\cos\\theta}",
+      "params": [
+        "I_1 (0.2–5.0, default 1.0)",
+        "I_3 (0.2–5.0, default 1.5)",
+        "m (0.2–5.0, default 1.0)",
+        "\\ell (0.2–3.0, default 1.0)",
+        "\\omega_3 (0.5–8.0, default 3.0)",
+        "\\theta (0.1–1.4, default 0.6)"
+      ],
+      "mapping": "two rates ← \\Omega_{\\text{slow}}, \\Omega_{\\text{fast}}",
+      "teaching_semantics": {
+        "zh-Hans": "展示快自旋极限下的慢进动与快速进动近似",
+        "en": "Shows Precession Limits (Fast/Slow)."
+      },
+      "preview": "8–12s 频率极限对比"
+    },
+    {
+      "id": "gradient_descent",
+      "name": {
+        "zh-Hans": "梯度下降",
+        "en": "Gradient Descent"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - \\alpha \\nabla f(x_k)",
+      "params": [
+        "\\alpha (0.01–1.0, default 0.1)",
+        "Steps (10–200, default 60)",
+        "Init Radius (0.2–3.0, default 1.2)"
+      ],
+      "mapping": "trajectory ← x_k, height ← f(x)",
+      "teaching_semantics": {
+        "zh-Hans": "展示函数最小化的逐步下降轨迹",
+        "en": "Shows Gradient Descent."
+      },
+      "preview": "8–12s 迭代路径收敛"
+    },
+    {
+      "id": "newton_method",
+      "name": {
+        "zh-Hans": "牛顿 Method",
+        "en": "Newton's Method"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - [\\nabla^2 f(x_k)]^{-1} \\nabla f(x_k)",
+      "params": [
+        "Steps (5–50, default 20)",
+        "Init Radius (0.2–3.0, default 1.2)"
+      ],
+      "mapping": "trajectory ← x_k, curvature ← \\nabla^2 f(x)",
+      "teaching_semantics": {
+        "zh-Hans": "展示二阶信息加速收敛",
+        "en": "Shows Newton's Method."
+      },
+      "preview": "8–12s 快速收敛轨迹"
+    },
+    {
+      "id": "conjugate_gradient",
+      "name": {
+        "zh-Hans": "共轭梯度",
+        "en": "Conjugate Gradient"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k + \\alpha_k p_k",
+      "params": [
+        "Steps (10–200, default 60)",
+        "Condition (1–100, default 20)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, trajectory ← x_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示线性方程组的迭代收敛过程",
+        "en": "Shows Conjugate Gradient."
+      },
+      "preview": "8–12s 残差曲线下降"
+    },
+    {
+      "id": "euler_forward_ode",
+      "name": {
+        "zh-Hans": "欧拉 Forward（ODE）",
+        "en": "Euler Forward (ODE)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "y_{n+1} = y_n + h f(t_n, y_n)",
+      "params": [
+        "Step Size h (0.005–0.1, default 0.02)",
+        "Steps (50–500, default 200)"
+      ],
+      "mapping": "time series ← y_n, slope ← f(t_n,y_n)",
+      "teaching_semantics": {
+        "zh-Hans": "展示欧拉前向法的离散逼近",
+        "en": "Shows Euler Forward (ODE)."
+      },
+      "preview": "8–12s 折线逼近曲线"
+    },
+    {
+      "id": "central_difference_first",
+      "name": {
+        "zh-Hans": "中心差分（一阶导数）",
+        "en": "Central Difference (1st Derivative)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "f'(x) \\approx \\frac{f(x+h) - f(x-h)}{2h}",
+      "params": [
+        "h (0.001–0.2, default 0.05)"
+      ],
+      "mapping": "slope estimate ← f'(x), error band ← h",
+      "teaching_semantics": {
+        "zh-Hans": "展示一阶导数的差分近似",
+        "en": "Shows Central Difference (1st Derivative)."
+      },
+      "preview": "6–10s 切线斜率估计"
+    },
+    {
+      "id": "central_difference_second",
+      "name": {
+        "zh-Hans": "二阶差分（二阶导数）",
+        "en": "Second Difference (2nd Derivative)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "f''(x) \\approx \\frac{f(x+h) - 2f(x) + f(x-h)}{h^2}",
+      "params": [
+        "h (0.001–0.2, default 0.05)"
+      ],
+      "mapping": "curvature estimate ← f''(x)",
+      "teaching_semantics": {
+        "zh-Hans": "展示二阶导数的差分近似",
+        "en": "Shows Second Difference (2nd Derivative)."
+      },
+      "preview": "6–10s 曲率估计变化"
+    },
+    {
+      "id": "trapezoidal_rule",
+      "name": {
+        "zh-Hans": "梯形法",
+        "en": "Trapezoidal Rule"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\int_a^b f(x)\\,dx \\approx \\frac{b-a}{2}[f(a)+f(b)]",
+      "params": [
+        "Intervals (2–100, default 20)"
+      ],
+      "mapping": "area estimate ← \\int f, trapezoids ← n",
+      "teaching_semantics": {
+        "zh-Hans": "展示梯形法对面积的近似",
+        "en": "Shows Trapezoidal Rule."
+      },
+      "preview": "6–10s 梯形拼接面积"
+    },
+    {
+      "id": "simpson_rule",
+      "name": {
+        "zh-Hans": "辛普森法",
+        "en": "Simpson's Rule"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\int_a^b f(x)\\,dx \\approx \\frac{b-a}{6}[f(a)+4f(\\frac{a+b}{2})+f(b)]",
+      "params": [
+        "Intervals (2–100, default 20)"
+      ],
+      "mapping": "area estimate ← \\int f, parabolic arcs ← n",
+      "teaching_semantics": {
+        "zh-Hans": "展示抛物线拟合的积分近似",
+        "en": "Shows Simpson's Rule."
+      },
+      "preview": "6–10s 抛物线拼接面积"
+    },
+    {
+      "id": "projected_gradient",
+      "name": {
+        "zh-Hans": "投影 Gradient",
+        "en": "Projected Gradient"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = \\Pi_{\\mathcal{C}}(x_k - \\alpha \\nabla f(x_k))",
+      "params": [
+        "\\alpha (0.01–1.0, default 0.1)",
+        "Steps (10–200, default 60)",
+        "Constraint Radius (0.5–3.0, default 1.5)"
+      ],
+      "mapping": "trajectory ← x_k, feasible set ← \\mathcal{C}",
+      "teaching_semantics": {
+        "zh-Hans": "展示受约束的梯度下降与投影",
+        "en": "Shows Projected Gradient."
+      },
+      "preview": "8–12s 轨迹贴边收敛"
+    },
+    {
+      "id": "admm_split",
+      "name": {
+        "zh-Hans": "ADMM（分裂形式）",
+        "en": "ADMM (Split Form)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x^{k+1} = \\arg\\min_x \\left(f(x) + \\frac{\\rho}{2}\\|Ax + Bz^k - c + u^k\\|^2\\right)",
+      "params": [
+        "\\rho (0.1–5.0, default 1.0)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "primal residual ← \\|r_k\\|, dual residual ← \\|s_k\\|",
+      "teaching_semantics": {
+        "zh-Hans": "展示分裂优化的原始/对偶残差收敛",
+        "en": "Shows ADMM (Split Form)."
+      },
+      "preview": "8–12s 双残差下降曲线"
+    },
+    {
+      "id": "l1_regularization_sparse",
+      "name": {
+        "zh-Hans": "L1 正则化（稀疏）",
+        "en": "L1 Regularization (Sparse)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\min_x \\; f(x) + \\lambda \\|x\\|_1",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)"
+      ],
+      "mapping": "sparsity level ← \\|x\\|_0, shrink ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示 L1 正则导致稀疏解",
+        "en": "Shows L1 Regularization (Sparse)."
+      },
+      "preview": "6–10s 系数被压缩为零"
+    },
+    {
+      "id": "soft_thresholding",
+      "name": {
+        "zh-Hans": "Soft 阈值",
+        "en": "Soft Thresholding"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "S_\\lambda(v) = \\text{sign}(v)\\max(|v|-\\lambda, 0)",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)"
+      ],
+      "mapping": "input/output ← v \\to S_\\lambda(v)",
+      "teaching_semantics": {
+        "zh-Hans": "展示软阈值对信号的稀疏化",
+        "en": "Shows Soft Thresholding."
+      },
+      "preview": "6–10s 输入输出折线对比"
+    },
+    {
+      "id": "gradient_descent_momentum",
+      "name": {
+        "zh-Hans": "梯度下降 with 动量",
+        "en": "Gradient Descent with Momentum"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_{k+1} = \\beta v_k + (1-\\beta)\\nabla f(x_k), \\quad x_{k+1} = x_k - \\alpha v_{k+1}",
+      "params": [
+        "\\alpha (0.01–1.0, default 0.1)",
+        "\\beta (0.0–0.99, default 0.9)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_k, velocity ← v_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示动量项如何平滑与加速收敛",
+        "en": "Shows Gradient Descent with Momentum."
+      },
+      "preview": "8–12s 轨迹更平滑的下降"
+    },
+    {
+      "id": "adam_optimizer",
+      "name": {
+        "zh-Hans": "Adam 优化器",
+        "en": "Adam Optimizer"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_t=\\beta_1 m_{t-1}+(1-\\beta_1)g_t, \\ v_t=\\beta_2 v_{t-1}+(1-\\beta_2)g_t^2, \\ x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_t, adaptive step ← \\alpha / \\sqrt{\\hat{v}_t}",
+      "teaching_semantics": {
+        "zh-Hans": "展示自适应学习率对收敛的影响",
+        "en": "Shows Adam Optimizer."
+      },
+      "preview": "8–12s 自适应步长收敛轨迹"
+    },
+    {
+      "id": "coordinate_descent",
+      "name": {
+        "zh-Hans": "坐标下降",
+        "en": "Coordinate Descent"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - \\alpha_k \\nabla_{i_k} f(x_k) e_{i_k}",
+      "params": [
+        "Steps (10–200, default 60)",
+        "Axis Cycle (1–5, default 2)"
+      ],
+      "mapping": "axis-aligned path ← x_k, coordinate index ← i_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示逐坐标优化的折线路径",
+        "en": "Shows Coordinate Descent."
+      },
+      "preview": "8–12s 轴向折线收敛"
+    },
+    {
+      "id": "lu_decomposition",
+      "name": {
+        "zh-Hans": "LU 分解",
+        "en": "LU Decomposition"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "A = L U",
+      "params": [
+        "Size (2–8, default 4)",
+        "Condition (1–50, default 10)"
+      ],
+      "mapping": "heatmap ← A, L, U",
+      "teaching_semantics": {
+        "zh-Hans": "展示矩阵分解为下三角与上三角的结构",
+        "en": "Shows LU Decomposition."
+      },
+      "preview": "6–10s A/L/U 热力图对比"
+    },
+    {
+      "id": "qr_decomposition",
+      "name": {
+        "zh-Hans": "QR 分解",
+        "en": "QR Decomposition"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "A = Q R",
+      "params": [
+        "Size (2–8, default 4)"
+      ],
+      "mapping": "orthogonality ← Q^T Q, heatmap ← Q, R",
+      "teaching_semantics": {
+        "zh-Hans": "展示正交矩阵与上三角矩阵的分解",
+        "en": "Shows QR Decomposition."
+      },
+      "preview": "6–10s 正交性与分解可视化"
+    },
+    {
+      "id": "singular_value_decomposition",
+      "name": {
+        "zh-Hans": "奇异值分解",
+        "en": "Singular Value Decomposition"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "A = U \\Sigma V^T",
+      "params": [
+        "Size (2–8, default 4)",
+        "Rank (1–4, default 2)"
+      ],
+      "mapping": "singular values ← \\Sigma, basis vectors ← U, V",
+      "teaching_semantics": {
+        "zh-Hans": "展示奇异值与基向量对矩阵的解释",
+        "en": "Shows Singular Value Decomposition."
+      },
+      "preview": "8–12s 奇异值谱与低秩近似"
+    },
+    {
+      "id": "stochastic_gradient_descent",
+      "name": {
+        "zh-Hans": "Stochastic 梯度下降（SGD）",
+        "en": "Stochastic Gradient Descent (SGD)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - \\alpha \\nabla f_{\\mathcal{B}_k}(x_k)",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "Batch Size (4–128, default 32)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "noisy trajectory ← x_k, batch gradient ← \\nabla f_{\\mathcal{B}_k}",
+      "teaching_semantics": {
+        "zh-Hans": "展示小批量梯度带来的随机抖动与收敛",
+        "en": "Shows Stochastic Gradient Descent (SGD)."
+      },
+      "preview": "8–12s 抖动收敛轨迹"
+    },
+    {
+      "id": "rmsprop",
+      "name": {
+        "zh-Hans": "RMSProp 优化器",
+        "en": "RMSProp"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t = \\beta v_{t-1} + (1-\\beta) g_t^2, \\quad x_{t+1}=x_t-\\alpha \\frac{g_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta (0.8–0.99, default 0.9)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{v_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示均方根缩放带来的自适应步长",
+        "en": "Shows RMSProp."
+      },
+      "preview": "8–12s 自适应收敛轨迹"
+    },
+    {
+      "id": "bfgs",
+      "name": {
+        "zh-Hans": "BFGS 方法",
+        "en": "BFGS"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "H_{k+1}= \\left(I-\\rho s y^T\\right)H_k\\left(I-\\rho y s^T\\right)+\\rho s s^T, \\quad \\rho=\\frac{1}{y^T s}",
+      "params": [
+        "Steps (5–100, default 40)",
+        "Init Radius (0.2–3.0, default 1.2)"
+      ],
+      "mapping": "trajectory ← x_k, curvature model ← H_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示拟牛顿对曲率的逐步近似",
+        "en": "Shows BFGS."
+      },
+      "preview": "8–12s 快速收敛轨迹"
+    },
+    {
+      "id": "l_bfgs",
+      "name": {
+        "zh-Hans": "L-BFGS 方法方法",
+        "en": "L-BFGS"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "H_k \\approx \\text{LimitedMemory}(s_i, y_i), \\quad x_{k+1}=x_k-\\alpha H_k \\nabla f(x_k)",
+      "params": [
+        "Memory (2–20, default 6)",
+        "Steps (5–100, default 40)"
+      ],
+      "mapping": "trajectory ← x_k, memory ← m",
+      "teaching_semantics": {
+        "zh-Hans": "展示有限记忆下的拟牛顿收敛",
+        "en": "Shows L-BFGS."
+      },
+      "preview": "8–12s 迭代路径收敛"
+    },
+    {
+      "id": "power_method",
+      "name": {
+        "zh-Hans": "功率 Method",
+        "en": "Power Method"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+1} = \\frac{A x_k}{\\|A x_k\\|}",
+      "params": [
+        "Size (2–8, default 4)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "vector direction ← x_k, eigenvalue ← \\lambda_{\\max}",
+      "teaching_semantics": {
+        "zh-Hans": "展示最大特征值与特征向量的迭代收敛",
+        "en": "Shows Power Method."
+      },
+      "preview": "6–10s 方向收敛"
+    },
+    {
+      "id": "inverse_power_method",
+      "name": {
+        "zh-Hans": "逆功率 Method",
+        "en": "Inverse Power Method"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+1} = \\frac{A^{-1} x_k}{\\|A^{-1} x_k\\|}",
+      "params": [
+        "Size (2–8, default 4)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "vector direction ← x_k, eigenvalue ← \\lambda_{\\min}",
+      "teaching_semantics": {
+        "zh-Hans": "展示最小特征值与特征向量的迭代收敛",
+        "en": "Shows Inverse Power Method."
+      },
+      "preview": "6–10s 方向收敛"
+    },
+    {
+      "id": "arnoldi_iteration",
+      "name": {
+        "zh-Hans": "Arnoldi 迭代",
+        "en": "Arnoldi Iteration"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "A Q_k = Q_k H_k + h_{k+1,k} q_{k+1} e_k^T",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "Hessenberg ← H_k, basis ← Q_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示 Krylov 子空间构造与上 Hessenberg 结构",
+        "en": "Shows Arnoldi Iteration."
+      },
+      "preview": "8–12s 迭代子空间增长"
+    },
+    {
+      "id": "sgd_momentum",
+      "name": {
+        "zh-Hans": "SGD with 动量",
+        "en": "SGD with Momentum"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_{k+1} = \\beta v_k + (1-\\beta)\\nabla f_{\\mathcal{B}_k}(x_k), \\quad x_{k+1} = x_k - \\alpha v_{k+1}",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\beta (0.0–0.99, default 0.9)",
+        "Batch Size (4–128, default 32)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "noisy trajectory ← x_k, velocity ← v_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示带动量的随机梯度收敛路径",
+        "en": "Shows SGD with Momentum."
+      },
+      "preview": "8–12s 抖动收敛轨迹"
+    },
+    {
+      "id": "nesterov_accelerated_gradient",
+      "name": {
+        "zh-Hans": "Nesterov 加速梯度（NAG）",
+        "en": "Nesterov Accelerated Gradient (NAG)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_{k+1} = \\beta v_k + (1-\\beta)\\nabla f_{\\mathcal{B}_k}(x_k - \\alpha \\beta v_k), \\quad x_{k+1} = x_k - \\alpha v_{k+1}",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\beta (0.0–0.99, default 0.9)",
+        "Batch Size (4–128, default 32)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "lookahead point ← x_k - \\alpha \\beta v_k, trajectory ← x_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示前瞻梯度带来的更快收敛",
+        "en": "Shows Nesterov Accelerated Gradient (NAG)."
+      },
+      "preview": "8–12s 前瞻修正轨迹"
+    },
+    {
+      "id": "l_bfgs_b",
+      "name": {
+        "zh-Hans": "L-BFGS 方法方法-B（有界）",
+        "en": "L-BFGS-B (Bounded)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = \\Pi_{[l,u]}(x_k - \\alpha H_k \\nabla f(x_k))",
+      "params": [
+        "Bounds (0–1, default 0–1)",
+        "Memory (2–20, default 6)",
+        "Steps (5–100, default 40)"
+      ],
+      "mapping": "trajectory ← x_k, bounds ← [l,u]",
+      "teaching_semantics": {
+        "zh-Hans": "展示带盒约束的拟牛顿优化",
+        "en": "Shows L-BFGS-B (Bounded)."
+      },
+      "preview": "8–12s 轨迹贴边收敛"
+    },
+    {
+      "id": "lanczos_iteration",
+      "name": {
+        "zh-Hans": "Lanczos Iteration（对称）",
+        "en": "Lanczos Iteration (Symmetric)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\beta_{k+1} q_{k+1} = A q_k - \\alpha_k q_k - \\beta_k q_{k-1}",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "tridiagonal ← T_k, basis ← Q_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示对称矩阵的三对角化迭代",
+        "en": "Shows Lanczos Iteration (Symmetric)."
+      },
+      "preview": "8–12s 三对角结构形成"
+    },
+    {
+      "id": "adagrad",
+      "name": {
+        "zh-Hans": "Adagrad 优化器",
+        "en": "Adagrad"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "r_t = r_{t-1} + g_t^2, \\quad x_{t+1}=x_t-\\alpha \\frac{g_t}{\\sqrt{r_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{r_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示累积平方梯度导致步长自适应衰减",
+        "en": "Shows Adagrad."
+      },
+      "preview": "8–12s 步长逐步减小"
+    },
+    {
+      "id": "adamw",
+      "name": {
+        "zh-Hans": "AdamW 优化器",
+        "en": "AdamW"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t}+\\epsilon}-\\alpha \\lambda x_t",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\lambda (0.0–0.1, default 0.01)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_t, weight decay ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示权重衰减对收敛与泛化的影响",
+        "en": "Shows AdamW."
+      },
+      "preview": "8–12s 收敛轨迹与衰减"
+    },
+    {
+      "id": "amsgrad",
+      "name": {
+        "zh-Hans": "AMSGrad 优化器",
+        "en": "AMSGrad"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t=\\max(v_{t-1}, \\hat{v}_t), \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{v_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示单调步长的自适应优化",
+        "en": "Shows AMSGrad."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "fista",
+      "name": {
+        "zh-Hans": "FISTA 方法",
+        "en": "FISTA"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "y_k = x_k + \\frac{t_{k-1}-1}{t_k}(x_k - x_{k-1}), \\quad x_{k+1} = \\text{prox}_{\\lambda}(y_k - \\alpha \\nabla f(y_k))",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "accelerated path ← x_k, shrink ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示加速近端梯度的更快收敛",
+        "en": "Shows FISTA."
+      },
+      "preview": "8–12s 加速收敛轨迹"
+    },
+    {
+      "id": "sparse_coordinate_descent",
+      "name": {
+        "zh-Hans": "稀疏坐标下降",
+        "en": "Sparse Coordinate Descent"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = \\text{soft}(x_k - \\alpha_k \\nabla_{i_k} f(x_k), \\lambda)",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "sparsity pattern ← x_k, coordinate index ← i_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示稀疏坐标下降与软阈值结合",
+        "en": "Shows Sparse Coordinate Descent."
+      },
+      "preview": "8–12s 系数逐步稀疏化"
+    },
+    {
+      "id": "adadelta",
+      "name": {
+        "zh-Hans": "Adadelta 优化器",
+        "en": "Adadelta"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\Delta x_t = - \\frac{\\text{RMS}[\\Delta x]_{t-1}}{\\text{RMS}[g]_t} g_t, \\quad x_{t+1} = x_t + \\Delta x_t",
+      "params": [
+        "\\rho (0.8–0.99, default 0.95)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\Delta x_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示单位一致的自适应步长更新",
+        "en": "Shows Adadelta."
+      },
+      "preview": "8–12s 自适应收敛轨迹"
+    },
+    {
+      "id": "nadam",
+      "name": {
+        "zh-Hans": "Nadam 优化器",
+        "en": "Nadam"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_t=\\beta_1 m_{t-1}+(1-\\beta_1)g_t, \\ v_t=\\beta_2 v_{t-1}+(1-\\beta_2)g_t^2, \\ x_{t+1}=x_t-\\alpha \\frac{\\beta_1 \\hat{m}_t + \\frac{(1-\\beta_1)g_t}{1-\\beta_1^t}}{\\sqrt{\\hat{v}_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_t, adaptive step ← \\alpha / \\sqrt{\\hat{v}_t}",
+      "teaching_semantics": {
+        "zh-Hans": "展示 Nesterov 动量与 Adam 的组合效果",
+        "en": "Shows Nadam."
+      },
+      "preview": "8–12s 加速收敛轨迹"
+    },
+    {
+      "id": "lookahead_optimizer",
+      "name": {
+        "zh-Hans": "Lookahead 优化器",
+        "en": "Lookahead Optimizer"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{t+k} = x_{t} + \\alpha (x_{t+k}^{\\text{fast}} - x_t)",
+      "params": [
+        "\\alpha (0.1–0.8, default 0.5)",
+        "k (2–10, default 5)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "fast/slow weights ← x^{\\text{fast}}, x",
+      "teaching_semantics": {
+        "zh-Hans": "展示快慢权重交替的稳定化效果",
+        "en": "Shows Lookahead Optimizer."
+      },
+      "preview": "8–12s 震荡降低的收敛轨迹"
+    },
+    {
+      "id": "prox_sgd",
+      "name": {
+        "zh-Hans": "近端 SGD",
+        "en": "Prox-SGD"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = \\text{prox}_{\\lambda}(x_k - \\alpha \\nabla f_{\\mathcal{B}_k}(x_k))",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Batch Size (4–128, default 32)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_k, shrink ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示随机梯度与近端稀疏化的结合",
+        "en": "Shows Prox-SGD."
+      },
+      "preview": "8–12s 稀疏化收敛轨迹"
+    },
+    {
+      "id": "asgd",
+      "name": {
+        "zh-Hans": "ASGD 方法",
+        "en": "ASGD"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\bar{x}_k = \\frac{1}{k}\\sum_{i=1}^k x_i, \\quad x_{k+1}=x_k-\\alpha \\nabla f_{\\mathcal{B}_k}(x_k)",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "Batch Size (4–128, default 32)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "trajectory ← x_k, averaged trajectory ← \\bar{x}_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示平均化对随机梯度收敛的平滑作用",
+        "en": "Shows ASGD."
+      },
+      "preview": "8–12s 原始/平均轨迹对比"
+    },
+    {
+      "id": "svrg",
+      "name": {
+        "zh-Hans": "SVRG 方法",
+        "en": "SVRG"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1}=x_k-\\alpha(\\nabla f_i(x_k)-\\nabla f_i(\\tilde{x})+\\nabla f(\\tilde{x}))",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "Epoch Length (10–200, default 50)"
+      ],
+      "mapping": "variance ← \\text{Var}(\\nabla f), trajectory ← x_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示方差消减带来的更稳定更新",
+        "en": "Shows SVRG."
+      },
+      "preview": "8–12s 方差下降与收敛"
+    },
+    {
+      "id": "adabelief",
+      "name": {
+        "zh-Hans": "AdaBelief 优化器",
+        "en": "AdaBelief"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "s_t=\\beta_2 s_{t-1}+(1-\\beta_2)(g_t-m_t)^2, \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{\\hat{s}_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{\\hat{s}_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示基于“信念”的自适应步长",
+        "en": "Shows AdaBelief."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "lion_optimizer",
+      "name": {
+        "zh-Hans": "Lion 优化器",
+        "en": "Lion Optimizer"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_t=\\beta_1 m_{t-1}+(1-\\beta_1)g_t, \\quad x_{t+1}=x_t-\\alpha \\text{sign}(\\beta_2 m_t + (1-\\beta_2)g_t)",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.8–0.99, default 0.99)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "sign update ← \\text{sign}(\\cdot), trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示符号更新的稀疏与鲁棒性",
+        "en": "Shows Lion Optimizer."
+      },
+      "preview": "8–12s 符号更新轨迹"
+    },
+    {
+      "id": "shampoo_optimizer",
+      "name": {
+        "zh-Hans": "Shampoo 优化器",
+        "en": "Shampoo"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "G = \\sum_t g_t g_t^T, \\quad x_{t+1}=x_t-\\alpha G^{-1/2} g_t",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "preconditioner ← G^{-1/2}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示矩阵预条件带来的方向缩放",
+        "en": "Shows Shampoo."
+      },
+      "preview": "8–12s 预条件加速收敛"
+    },
+    {
+      "id": "gmres",
+      "name": {
+        "zh-Hans": "GMRES 方法",
+        "en": "GMRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_{x\\in x_0+\\mathcal{K}_k} \\|b-Ax\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, Krylov basis ← \\mathcal{K}_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示非对称线性系统的残差最小化迭代",
+        "en": "Shows GMRES."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "bicgstab",
+      "name": {
+        "zh-Hans": "BiCGSTAB 方法",
+        "en": "BiCGSTAB"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+1} = x_k + \\alpha_k p_k + \\omega_k s_k",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, stability factor ← \\omega_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示双共轭梯度稳定化的迭代收敛",
+        "en": "Shows BiCGSTAB."
+      },
+      "preview": "8–12s 残差稳定下降"
+    },
+    {
+      "id": "adafactor",
+      "name": {
+        "zh-Hans": "Adafactor 优化器",
+        "en": "Adafactor"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t = \\text{factored}(g_t^2), \\quad x_{t+1}=x_t-\\alpha \\frac{g_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{v_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示分解式二阶矩估计的省内存优化",
+        "en": "Shows Adafactor."
+      },
+      "preview": "8–12s 低内存收敛轨迹"
+    },
+    {
+      "id": "yogi",
+      "name": {
+        "zh-Hans": "Yogi 优化器",
+        "en": "Yogi"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t = v_{t-1} - (1-\\beta_2)\\text{sign}(v_{t-1}-g_t^2)g_t^2, \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{v_t}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示抑制过度增长的二阶矩更新",
+        "en": "Shows Yogi."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "radam",
+      "name": {
+        "zh-Hans": "RAdam 优化器",
+        "en": "RAdam"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "r_t = \\sqrt{\\frac{(t-1)\\rho_\\infty}{(t-1)\\rho_\\infty-2t}}, \\quad x_{t+1}=x_t-\\alpha r_t \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "rectification factor ← r_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示方差修正带来的稳定收敛",
+        "en": "Shows RAdam."
+      },
+      "preview": "8–12s 修正因子随步数变化"
+    },
+    {
+      "id": "amsbound",
+      "name": {
+        "zh-Hans": "AMSBound 优化器",
+        "en": "AMSBound"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\eta_t = \\text{clip}\\left(\\frac{\\alpha}{\\sqrt{v_t}+\\epsilon}, \\eta_l(t), \\eta_u(t)\\right), \\quad x_{t+1}=x_t-\\eta_t \\hat{m}_t",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "bounded step ← \\eta_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示带上下界的自适应步长",
+        "en": "Shows AMSBound."
+      },
+      "preview": "8–12s 步长上/下界限制"
+    },
+    {
+      "id": "nesterov_lbfgs",
+      "name": {
+        "zh-Hans": "Nesterov-LBFGS 方法",
+        "en": "Nesterov-LBFGS"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - \\alpha H_k \\nabla f(x_k + \\beta (x_k - x_{k-1}))",
+      "params": [
+        "\\alpha (0.001–0.5, default 0.05)",
+        "\\beta (0.0–0.99, default 0.9)",
+        "Memory (2–20, default 6)",
+        "Steps (5–100, default 40)"
+      ],
+      "mapping": "lookahead point ← x_k + \\beta (x_k - x_{k-1}), trajectory ← x_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示前瞻与拟牛顿结合的加速收敛",
+        "en": "Shows Nesterov-LBFGS."
+      },
+      "preview": "8–12s 更快收敛轨迹"
+    },
+    {
+      "id": "minres",
+      "name": {
+        "zh-Hans": "MINRES 方法",
+        "en": "MINRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_{x\\in x_0+\\mathcal{K}_k} \\|A x - b\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, Krylov basis ← \\mathcal{K}_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示对称线性系统的最小残差迭代",
+        "en": "Shows MINRES."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "qmr",
+      "name": {
+        "zh-Hans": "QMR 方法",
+        "en": "QMR"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+1}=x_k+\\alpha_k p_k, \\quad \\text{minimize quasi-residual}",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "quasi-residual ← \\|r_k\\|, direction ← p_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示准最小残差的迭代过程",
+        "en": "Shows QMR."
+      },
+      "preview": "8–12s 准残差下降"
+    },
+    {
+      "id": "tfqmr",
+      "name": {
+        "zh-Hans": "TFQMR 方法",
+        "en": "TFQMR"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+1}=x_k+\\alpha_k u_k + \\beta_k w_k",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "quasi-residual ← \\|r_k\\|, stability ← \\alpha_k,\\beta_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示无转置的准最小残差迭代",
+        "en": "Shows TFQMR."
+      },
+      "preview": "8–12s 准残差稳定下降"
+    },
+    {
+      "id": "rmsprop_nesterov",
+      "name": {
+        "zh-Hans": "RMSProp 优化器 + Nesterov",
+        "en": "RMSProp + Nesterov"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t=\\beta v_{t-1}+(1-\\beta)g_t^2, \\quad x_{t+1}=x_t-\\alpha \\frac{\\nabla f(x_t-\\alpha \\beta m_t)}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta (0.8–0.99, default 0.9)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / \\sqrt{v_t}, lookahead ← x_t-\\alpha \\beta m_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示 RMSProp 与前瞻梯度的组合效果",
+        "en": "Shows RMSProp + Nesterov."
+      },
+      "preview": "8–12s 前瞻自适应轨迹"
+    },
+    {
+      "id": "adamax",
+      "name": {
+        "zh-Hans": "AdaMax 优化器",
+        "en": "AdaMax"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "u_t=\\max(\\beta_2 u_{t-1}, |g_t|), \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{u_t}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "adaptive step ← \\alpha / u_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示无穷范数动量的稳定更新",
+        "en": "Shows AdaMax."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "novograd",
+      "name": {
+        "zh-Hans": "NovoGrad 优化器",
+        "en": "NovoGrad"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t=\\beta_2 v_{t-1}+(1-\\beta_2)\\|g_t\\|^2, \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "scalar second-moment ← v_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示标量二阶矩估计的轻量优化",
+        "en": "Shows NovoGrad."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "adahessian",
+      "name": {
+        "zh-Hans": "AdaHessian 优化器",
+        "en": "AdaHessian"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "v_t=\\beta_2 v_{t-1}+(1-\\beta_2)\\text{diag}(H_t)^2, \\quad x_{t+1}=x_t-\\alpha \\frac{\\hat{m}_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.9–0.999, default 0.999)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "hessian diag ← \\text{diag}(H_t), trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示二阶曲率对自适应步长的影响",
+        "en": "Shows AdaHessian."
+      },
+      "preview": "8–12s 二阶信息加速收敛"
+    },
+    {
+      "id": "idr_s",
+      "name": {
+        "zh-Hans": "IDR（s）方法",
+        "en": "IDR(s)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "r_k \\in \\mathcal{S}, \\quad r_{k+1} = (I-\\omega_k A) r_k",
+      "params": [
+        "Size (2–12, default 6)",
+        "s (1–8, default 2)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, subspace ← \\mathcal{S}",
+      "teaching_semantics": {
+        "zh-Hans": "展示残差空间逐步收缩",
+        "en": "Shows IDR(s)."
+      },
+      "preview": "8–12s 残差收敛轨迹"
+    },
+    {
+      "id": "lsqr",
+      "name": {
+        "zh-Hans": "LSQR 方法",
+        "en": "LSQR"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_x \\|A x - b\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|A x_k - b\\|, iteration ← k",
+      "teaching_semantics": {
+        "zh-Hans": "展示最小二乘迭代收敛",
+        "en": "Shows LSQR."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "lsmr",
+      "name": {
+        "zh-Hans": "LSMR 方法",
+        "en": "LSMR"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_x \\|A^T(Ax-b)\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "normal residual ← \\|A^T(Ax-b)\\|, iteration ← k",
+      "teaching_semantics": {
+        "zh-Hans": "展示正规方程残差的迭代收敛",
+        "en": "Shows LSMR."
+      },
+      "preview": "8–12s 正规残差下降曲线"
+    },
+    {
+      "id": "diffgrad",
+      "name": {
+        "zh-Hans": "DiffGrad 优化器",
+        "en": "DiffGrad"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\xi_t = \\frac{1}{1+e^{-|g_t-g_{t-1}|}}, \\quad x_{t+1}=x_t-\\alpha \\frac{\\xi_t g_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "diff factor ← \\xi_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示梯度变化驱动的自适应步长",
+        "en": "Shows DiffGrad."
+      },
+      "preview": "8–12s 自适应收敛轨迹"
+    },
+    {
+      "id": "madgrad",
+      "name": {
+        "zh-Hans": "MADGRAD 方法",
+        "en": "MADGRAD"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "s_t = s_{t-1} + g_t^2, \\quad x_{t+1}=x_t-\\alpha \\frac{g_t}{(s_t+\\epsilon)^{1/3}}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "scaled step ← 1/(s_t)^{1/3}, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示三次根缩放的稳健更新",
+        "en": "Shows MADGRAD."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "sophia",
+      "name": {
+        "zh-Hans": "Sophia 优化器",
+        "en": "Sophia"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{t+1}=x_t-\\alpha \\cdot \\text{clip}\\left(\\frac{\\hat{m}_t}{\\hat{h}_t}, \\rho\\right)",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\rho (0.01–1.0, default 0.1)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "clipped step ← \\rho, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示 Hessian 估计与裁剪更新",
+        "en": "Shows Sophia."
+      },
+      "preview": "8–12s 受限步长收敛"
+    },
+    {
+      "id": "adan",
+      "name": {
+        "zh-Hans": "Adan 优化器",
+        "en": "Adan"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "m_t=\\beta_1 m_{t-1}+(1-\\beta_1)g_t, \\quad v_t=\\beta_2 v_{t-1}+(1-\\beta_2)(g_t-g_{t-1}), \\quad x_{t+1}=x_t-\\alpha \\frac{m_t+\\beta_2 v_t}{\\sqrt{u_t}+\\epsilon}",
+      "params": [
+        "\\alpha (0.0005–0.2, default 0.02)",
+        "\\beta_1 (0.8–0.99, default 0.9)",
+        "\\beta_2 (0.8–0.99, default 0.99)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "gradient diff ← v_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示梯度差分项对更新的影响",
+        "en": "Shows Adan."
+      },
+      "preview": "8–12s 稳定收敛轨迹"
+    },
+    {
+      "id": "cgnr",
+      "name": {
+        "zh-Hans": "CGNR 方法",
+        "en": "CGNR"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_x \\|A^T(Ax-b)\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "normal residual ← \\|A^T(Ax-b)\\|, iteration ← k",
+      "teaching_semantics": {
+        "zh-Hans": "展示基于正规方程的共轭梯度迭代",
+        "en": "Shows CGNR."
+      },
+      "preview": "8–12s 正规残差下降曲线"
+    },
+    {
+      "id": "cgne",
+      "name": {
+        "zh-Hans": "CGNE 方法",
+        "en": "CGNE"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_x \\|Ax-b\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|Ax-b\\|, iteration ← k",
+      "teaching_semantics": {
+        "zh-Hans": "展示最小二乘意义下的共轭梯度迭代",
+        "en": "Shows CGNE."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "cgls",
+      "name": {
+        "zh-Hans": "CGLS 方法",
+        "en": "CGLS"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_x \\|Ax-b\\|^2",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|Ax-b\\|, iteration ← k",
+      "teaching_semantics": {
+        "zh-Hans": "展示共轭梯度最小二乘的收敛过程",
+        "en": "Shows CGLS."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "adafactor_relative_step",
+      "name": {
+        "zh-Hans": "Adafactor 优化器（相对步长）",
+        "en": "Adafactor (Relative Step)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\alpha_t = \\frac{1}{\\sqrt{t}}, \\quad x_{t+1}=x_t-\\alpha_t \\frac{g_t}{\\sqrt{v_t}+\\epsilon}",
+      "params": [
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "relative step ← \\alpha_t, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示相对步长随迭代衰减的更新",
+        "en": "Shows Adafactor (Relative Step)."
+      },
+      "preview": "8–12s 步长随时间衰减"
+    },
+    {
+      "id": "adadelta_w",
+      "name": {
+        "zh-Hans": "AdaDelta 优化器W",
+        "en": "AdaDeltaW"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{t+1} = x_t + \\Delta x_t - \\alpha \\lambda x_t",
+      "params": [
+        "\\rho (0.8–0.99, default 0.95)",
+        "\\lambda (0.0–0.1, default 0.01)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "weight decay ← \\lambda, trajectory ← x_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示带权重衰减的 Adadelta 更新",
+        "en": "Shows AdaDeltaW."
+      },
+      "preview": "8–12s 衰减与收敛轨迹"
+    },
+    {
+      "id": "lion_lookahead",
+      "name": {
+        "zh-Hans": "Lion 优化器 + Lookahead 优化器",
+        "en": "Lion + Lookahead"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{t+k} = x_t + \\alpha (x_{t+k}^{\\text{lion}} - x_t)",
+      "params": [
+        "\\alpha (0.1–0.8, default 0.5)",
+        "k (2–10, default 5)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "fast/slow weights ← x^{\\text{lion}}, x",
+      "teaching_semantics": {
+        "zh-Hans": "展示 Lion 与 Lookahead 的组合更新",
+        "en": "Shows Lion + Lookahead."
+      },
+      "preview": "8–12s 快慢权重协同收敛"
+    },
+    {
+      "id": "symmlq",
+      "name": {
+        "zh-Hans": "SYMMLQ 方法",
+        "en": "SYMMLQ"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_{x\\in x_0+\\mathcal{K}_k} \\|A x - b\\|",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, Krylov basis ← \\mathcal{K}_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示对称不定系统的 Krylov 迭代",
+        "en": "Shows SYMMLQ."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "minres_qlp",
+      "name": {
+        "zh-Hans": "MINRES-QLP 方法",
+        "en": "MINRES-QLP"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_{x\\in x_0+\\mathcal{K}_k} \\|A x - b\\| \\quad (\\text{QLP-regularized})",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, regularization ← \\text{QLP}",
+      "teaching_semantics": {
+        "zh-Hans": "展示 QLP 稳定化的最小残差迭代",
+        "en": "Shows MINRES-QLP."
+      },
+      "preview": "8–12s 稳定残差下降"
+    },
+    {
+      "id": "lsqr_tikhonov",
+      "name": {
+        "zh-Hans": "LSQR（Tikhonov 正则化）",
+        "en": "LSQR (Tikhonov Regularization)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_\\lambda = \\arg\\min_x \\|Ax-b\\|^2 + \\lambda \\|x\\|^2",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "residual norm ← \\|Ax-b\\|, regularization ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示正则化对最小二乘解的平衡作用",
+        "en": "Shows LSQR (Tikhonov Regularization)."
+      },
+      "preview": "8–12s 正则化路径变化"
+    },
+    {
+      "id": "lsqr_l_curve",
+      "name": {
+        "zh-Hans": "LSQR（L-curve 选择）",
+        "en": "LSQR (L-curve Selection)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\lambda^\\* = \\arg\\max_\\lambda \\kappa(\\|Ax_\\lambda-b\\|, \\|x_\\lambda\\|)",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "L-curve ← (\\|Ax-b\\|,\\|x\\|), corner ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示 L-curve 在残差与解范数间的折中",
+        "en": "Shows LSQR (L-curve Selection)."
+      },
+      "preview": "8–12s L-curve 拐点选择"
+    },
+    {
+      "id": "lsqr_gcv",
+      "name": {
+        "zh-Hans": "LSQR（GCV 选择）",
+        "en": "LSQR (GCV Selection)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\lambda^\\* = \\arg\\min_\\lambda \\frac{\\|Ax_\\lambda-b\\|^2}{(\\text{trace}(I-A_\\lambda))^2}",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "GCV curve ← G(\\lambda), minimizer ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示广义交叉验证选择正则化参数",
+        "en": "Shows LSQR (GCV Selection)."
+      },
+      "preview": "8–12s GCV 曲线最小点"
+    },
+    {
+      "id": "preconditioned_symmlq",
+      "name": {
+        "zh-Hans": "预条件 SYMMLQ",
+        "en": "Preconditioned SYMMLQ"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "M^{-1}A x = M^{-1}b",
+      "params": [
+        "Size (2–12, default 6)",
+        "Condition (1–50, default 10)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, preconditioner ← M",
+      "teaching_semantics": {
+        "zh-Hans": "展示预条件化对对称不定系统的加速",
+        "en": "Shows Preconditioned SYMMLQ."
+      },
+      "preview": "8–12s 残差加速下降"
+    },
+    {
+      "id": "preconditioned_minres",
+      "name": {
+        "zh-Hans": "预条件 MINRES",
+        "en": "Preconditioned MINRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "M^{-1}A x = M^{-1}b",
+      "params": [
+        "Size (2–12, default 6)",
+        "Condition (1–50, default 10)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, preconditioner ← M",
+      "teaching_semantics": {
+        "zh-Hans": "展示预条件化对最小残差迭代的收敛提升",
+        "en": "Shows Preconditioned MINRES."
+      },
+      "preview": "8–12s 残差加速下降"
+    },
+    {
+      "id": "preconditioned_gmres",
+      "name": {
+        "zh-Hans": "预条件 GMRES",
+        "en": "Preconditioned GMRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "M^{-1}A x = M^{-1}b",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)",
+        "Condition (1–50, default 10)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, preconditioner ← M",
+      "teaching_semantics": {
+        "zh-Hans": "展示预条件化 GMRES 的收敛加速",
+        "en": "Shows Preconditioned GMRES."
+      },
+      "preview": "8–12s 残差加速下降"
+    },
+    {
+      "id": "preconditioned_bicgstab",
+      "name": {
+        "zh-Hans": "预条件 BiCGSTAB 方法",
+        "en": "Preconditioned BiCGSTAB"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "M^{-1}A x = M^{-1}b",
+      "params": [
+        "Size (2–12, default 6)",
+        "Steps (5–100, default 30)",
+        "Condition (1–50, default 10)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, preconditioner ← M",
+      "teaching_semantics": {
+        "zh-Hans": "展示预条件化 BiCGSTAB 的稳定收敛",
+        "en": "Shows Preconditioned BiCGSTAB."
+      },
+      "preview": "8–12s 残差加速下降"
+    },
+    {
+      "id": "morozov_discrepancy_principle",
+      "name": {
+        "zh-Hans": "Morozov 差异原则",
+        "en": "Morozov Discrepancy Principle"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\|Ax_\\lambda - b\\| = \\delta",
+      "params": [
+        "\\delta (0.0–2.0, default 0.5)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "residual norm ← \\|Ax-b\\|, target ← \\delta",
+      "teaching_semantics": {
+        "zh-Hans": "展示残差匹配噪声水平的正则化选择",
+        "en": "Shows Morozov Discrepancy Principle."
+      },
+      "preview": "8–12s 残差与阈值交点"
+    },
+    {
+      "id": "discrepancy_principle_general",
+      "name": {
+        "zh-Hans": "差异原则（通用）",
+        "en": "Discrepancy Principle (General)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\|Ax_\\lambda - b\\| \\approx \\tau \\delta",
+      "params": [
+        "\\tau (0.8–1.5, default 1.0)",
+        "\\delta (0.0–2.0, default 0.5)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "residual norm ← \\|Ax-b\\|, target ← \\tau\\delta",
+      "teaching_semantics": {
+        "zh-Hans": "展示带松弛因子的差异原则选择",
+        "en": "Shows Discrepancy Principle (General)."
+      },
+      "preview": "8–12s 目标残差线与交点"
+    },
+    {
+      "id": "gmres_restart_m",
+      "name": {
+        "zh-Hans": "GMRES（m）重启",
+        "en": "GMRES(m) Restart"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+m} \\leftarrow x_k \\quad (\\text{restart every } m)",
+      "params": [
+        "Restart m (5–50, default 20)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, restart points ← m",
+      "teaching_semantics": {
+        "zh-Hans": "展示重启策略对 GMRES 收敛的影响",
+        "en": "Shows GMRES(m) Restart."
+      },
+      "preview": "8–12s 残差周期性重启"
+    },
+    {
+      "id": "s_curve_regularization",
+      "name": {
+        "zh-Hans": "S-curve（正则化选择）",
+        "en": "S-curve (Regularization Selection)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "S(\\lambda) = (\\log \\|Ax_\\lambda-b\\|, \\log \\|x_\\lambda\\|)",
+      "params": [
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "S-curve ← S(\\lambda), corner ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示 S-curve 选择正则化参数",
+        "en": "Shows S-curve (Regularization Selection)."
+      },
+      "preview": "8–12s S-curve 拐点选择"
+    },
+    {
+      "id": "upre_regularization",
+      "name": {
+        "zh-Hans": "UPRE（正则化选择）",
+        "en": "UPRE (Regularization Selection)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\lambda^\\* = \\arg\\min_\\lambda \\left(\\|Ax_\\lambda-b\\|^2 + 2\\sigma^2 \\text{trace}(A_\\lambda) - n\\sigma^2\\right)",
+      "params": [
+        "\\sigma (0.0–1.0, default 0.1)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "UPRE curve ← U(\\lambda), minimizer ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示无偏预测风险选择正则化参数",
+        "en": "Shows UPRE (Regularization Selection)."
+      },
+      "preview": "8–12s UPRE 曲线最小点"
+    },
+    {
+      "id": "flexible_gmres",
+      "name": {
+        "zh-Hans": "可变 GMRES",
+        "en": "Flexible GMRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "A Z_k = Q_{k+1} H_k, \\quad x_k = x_0 + Z_k y_k",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, basis ← Z_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示变预条件的 GMRES 迭代",
+        "en": "Shows Flexible GMRES."
+      },
+      "preview": "8–12s 残差下降曲线"
+    },
+    {
+      "id": "anderson_acceleration",
+      "name": {
+        "zh-Hans": "Anderson 加速度",
+        "en": "Anderson Acceleration"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = \\sum_{i=0}^m \\alpha_i g(x_{k-i})",
+      "params": [
+        "History m (1–10, default 4)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "accelerated path ← x_k, history ← m",
+      "teaching_semantics": {
+        "zh-Hans": "展示固定点迭代的加速收敛",
+        "en": "Shows Anderson Acceleration."
+      },
+      "preview": "8–12s 加速收敛轨迹"
+    },
+    {
+      "id": "rrgmres",
+      "name": {
+        "zh-Hans": "RRGMRES 方法",
+        "en": "RRGMRES"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_k = \\arg\\min_{x\\in x_0+\\mathcal{K}_k} \\|A x - b\\| \\quad (\\text{regularized})",
+      "params": [
+        "Size (2–12, default 6)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, regularization ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示正则化 GMRES 的稳定收敛",
+        "en": "Shows RRGMRES."
+      },
+      "preview": "8–12s 残差稳定下降"
+    },
+    {
+      "id": "wgcv_regularization",
+      "name": {
+        "zh-Hans": "WGCV（加权 GCV）",
+        "en": "WGCV (Weighted GCV)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\lambda^\\* = \\arg\\min_\\lambda \\frac{\\|Ax_\\lambda-b\\|^2}{(\\text{trace}(I-\\gamma A_\\lambda))^2}",
+      "params": [
+        "\\gamma (0.5–2.0, default 1.0)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "WGCV curve ← W(\\lambda), minimizer ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示加权广义交叉验证选择",
+        "en": "Shows WGCV (Weighted GCV)."
+      },
+      "preview": "8–12s WGCV 曲线最小点"
+    },
+    {
+      "id": "rgcv_regularization",
+      "name": {
+        "zh-Hans": "RGCV（鲁棒 GCV）",
+        "en": "RGCV (Robust GCV)"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "\\lambda^\\* = \\arg\\min_\\lambda \\left(\\frac{\\|Ax_\\lambda-b\\|^2}{(\\text{trace}(I-A_\\lambda))^2} + \\eta \\lambda\\right)",
+      "params": [
+        "\\eta (0.0–1.0, default 0.1)",
+        "Samples (10–50, default 20)"
+      ],
+      "mapping": "RGCV curve ← R(\\lambda), minimizer ← \\lambda^\\*",
+      "teaching_semantics": {
+        "zh-Hans": "展示鲁棒化 GCV 选择正则化参数",
+        "en": "Shows RGCV (Robust GCV)."
+      },
+      "preview": "8–12s RGCV 曲线最小点"
+    },
+    {
+      "id": "fgmres_restart_m",
+      "name": {
+        "zh-Hans": "FGMRES（m）重启",
+        "en": "FGMRES(m) Restart"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "x_{k+m} \\leftarrow x_k \\quad (\\text{restart every } m)",
+      "params": [
+        "Restart m (5–50, default 20)",
+        "Krylov Dim (2–8, default 4)"
+      ],
+      "mapping": "residual norm ← \\|r_k\\|, restart points ← m",
+      "teaching_semantics": {
+        "zh-Hans": "展示变预条件 GMRES 的重启策略",
+        "en": "Shows FGMRES(m) Restart."
+      },
+      "preview": "8–12s 残差周期性重启"
+    },
+    {
+      "id": "anderson_mixing",
+      "name": {
+        "zh-Hans": "Anderson 加速度 + Mixing",
+        "en": "Anderson Acceleration + Mixing"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = (1-\\beta) g(x_k) + \\beta \\sum_{i=0}^m \\alpha_i g(x_{k-i})",
+      "params": [
+        "Mixing \\beta (0.0–1.0, default 0.5)",
+        "History m (1–10, default 4)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "mixed path ← x_k, history ← m",
+      "teaching_semantics": {
+        "zh-Hans": "展示混合参数对加速稳定性的影响",
+        "en": "Shows Anderson Acceleration + Mixing."
+      },
+      "preview": "8–12s 混合收敛轨迹"
+    },
+    {
+      "id": "levenberg_marquardt",
+      "name": {
+        "zh-Hans": "列文伯格–马夸尔特（LM）",
+        "en": "Levenberg–Marquardt (LM)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x_{k+1} = x_k - (J^T J + \\lambda I)^{-1} J^T r",
+      "params": [
+        "\\lambda (0.0–2.0, default 0.5)",
+        "Steps (5–100, default 30)"
+      ],
+      "mapping": "damping ← \\lambda, trajectory ← x_k",
+      "teaching_semantics": {
+        "zh-Hans": "展示阻尼项在牛顿与梯度下降间的平衡",
+        "en": "Shows Levenberg–Marquardt (LM)."
+      },
+      "preview": "8–12s 阻尼调节收敛"
+    },
+    {
+      "id": "wave_speed",
+      "name": {
+        "zh-Hans": "波速度",
+        "en": "Wave Speed"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "v = \\lambda f",
+      "params": [
+        "\\lambda (0.5–5.0, default 2.0)",
+        "f (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "wave travel speed ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示波速由波长与频率决定",
+        "en": "Shows Wave Speed."
+      },
+      "preview": "6–10s 波形推进速度变化"
+    },
+    {
+      "id": "simple_harmonic_motion",
+      "name": {
+        "zh-Hans": "简谐运动",
+        "en": "Simple Harmonic Motion"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "x(t) = A \\cos(\\omega t + \\phi)",
+      "params": [
+        "A (0.2–2.0, default 1.0)",
+        "\\omega (0.5–6.0, default 2.0)",
+        "\\phi (0–2\\pi, default 0)"
+      ],
+      "mapping": "position ← x(t), color ← \\phi",
+      "teaching_semantics": {
+        "zh-Hans": "展示简谐振动的周期结构",
+        "en": "Shows Simple Harmonic Motion."
+      },
+      "preview": "6–10s 正弦往复"
+    },
+    {
+      "id": "angular_frequency",
+      "name": {
+        "zh-Hans": "角频率",
+        "en": "Angular Frequency"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "\\omega = 2\\pi f",
+      "params": [
+        "f (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "angular speed ← \\omega",
+      "teaching_semantics": {
+        "zh-Hans": "展示频率与角频率的比例关系",
+        "en": "Shows Angular Frequency."
+      },
+      "preview": "6–10s 角速度指示变化"
+    },
+    {
+      "id": "shm_period_mass_spring",
+      "name": {
+        "zh-Hans": "SHM 周期（质量-弹簧）",
+        "en": "SHM Period (Mass-Spring)"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "T = 2\\pi \\sqrt{\\frac{m}{k}}",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "k (0.2–5.0, default 2.0)"
+      ],
+      "mapping": "period ← T, oscillation speed ← 1/T",
+      "teaching_semantics": {
+        "zh-Hans": "展示质量与弹簧系数决定振动周期",
+        "en": "Shows SHM Period (Mass-Spring)."
+      },
+      "preview": "6–10s 弹簧振动快慢变化"
+    },
+    {
+      "id": "hookes_law",
+      "name": {
+        "zh-Hans": "胡克 Law",
+        "en": "Hooke's Law"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "F = -k x",
+      "params": [
+        "k (0.2–5.0, default 2.0)",
+        "x (0.2–2.0, default 1.0)"
+      ],
+      "mapping": "restoring force ← F, displacement ← x",
+      "teaching_semantics": {
+        "zh-Hans": "展示位移与回复力成正比且方向相反",
+        "en": "Shows Hooke's Law."
+      },
+      "preview": "6–10s 弹簧拉伸与回复"
+    },
+    {
+      "id": "spring_potential_energy",
+      "name": {
+        "zh-Hans": "弹簧势能能量",
+        "en": "Spring Potential Energy"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "E = \\frac{1}{2} k x^2",
+      "params": [
+        "k (0.2–5.0, default 2.0)",
+        "x (0.2–2.0, default 1.0)"
+      ],
+      "mapping": "energy bar ← E",
+      "teaching_semantics": {
+        "zh-Hans": "展示形变能随位移平方增长",
+        "en": "Shows Spring Potential Energy."
+      },
+      "preview": "6–10s 能量条随位移上升"
+    },
+    {
+      "id": "bernoulli_equation",
+      "name": {
+        "zh-Hans": "Bernoulli 方程",
+        "en": "Bernoulli Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "P + \\frac{1}{2}\\rho v^2 + \\rho g h = \\text{常数}",
+      "params": [
+        "\\rho (0.5–2.0, default 1.0)",
+        "v (0.2–5.0, default 1.5)",
+        "g (9.8–9.8, default 9.8)",
+        "h (0–3.0, default 1.0)"
+      ],
+      "mapping": "pressure field ← P, speed field ← v",
+      "teaching_semantics": {
+        "zh-Hans": "展示压力、速度与高度间的能量交换",
+        "en": "Shows Bernoulli Equation."
+      },
+      "preview": "8–12s 流管中压强与速度变化"
+    },
+    {
+      "id": "coulomb_law",
+      "name": {
+        "zh-Hans": "库仑 Law",
+        "en": "Coulomb's Law"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "F = k\\frac{q_1 q_2}{r^2}",
+      "params": [
+        "q_1 (0.2–5.0, default 1.0)",
+        "q_2 (0.2–5.0, default 1.0)",
+        "r (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "force vectors ← F, field lines ← E",
+      "teaching_semantics": {
+        "zh-Hans": "展示电荷间力随距离平方衰减",
+        "en": "Shows Coulomb's Law."
+      },
+      "preview": "8–12s 电场线与受力"
+    },
+    {
+      "id": "gauss_law",
+      "name": {
+        "zh-Hans": "高斯 Law",
+        "en": "Gauss's Law"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\oint \\mathbf{E}\\cdot d\\mathbf{A}=\\frac{Q_{\\text{enc}}}{\\epsilon_0}",
+      "params": [
+        "Q (0.2–5.0, default 1.0)",
+        "Radius (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "flux ← \\Phi_E, field lines ← E",
+      "teaching_semantics": {
+        "zh-Hans": "展示电通量与包围电荷的关系",
+        "en": "Shows Gauss's Law."
+      },
+      "preview": "8–12s 球面通量变化"
+    },
+    {
+      "id": "ampere_circuital_law",
+      "name": {
+        "zh-Hans": "安培 Circuital Law",
+        "en": "Ampere's Circuital Law"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\oint \\mathbf{B}\\cdot d\\mathbf{l}=\\mu_0 I_{\\text{enc}}",
+      "params": [
+        "I (0.2–5.0, default 1.0)",
+        "Radius (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "magnetic field ← B, loop integral ← \\oint B dl",
+      "teaching_semantics": {
+        "zh-Hans": "展示电流产生环形磁场",
+        "en": "Shows Ampere's Circuital Law."
+      },
+      "preview": "8–12s 磁场环绕电流"
+    },
+    {
+      "id": "schrodinger_time_dependent",
+      "name": {
+        "zh-Hans": "薛定谔方程（Time-Dependent）",
+        "en": "Schrodinger Equation (Time-Dependent)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "i\\hbar \\frac{\\partial \\psi}{\\partial t} = \\hat{H}\\psi",
+      "params": [
+        "\\hbar (0.5–2.0, default 1.0)",
+        "Potential (0–2.0, default 0.5)"
+      ],
+      "mapping": "amplitude ← |\\psi|, phase ← arg(\\psi)",
+      "teaching_semantics": {
+        "zh-Hans": "展示波函数随时间演化",
+        "en": "Shows Schrodinger Equation (Time-Dependent)."
+      },
+      "preview": "8–12s 波包演化"
+    },
+    {
+      "id": "de_broglie_relation",
+      "name": {
+        "zh-Hans": "德布罗意关系",
+        "en": "de Broglie Relation"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "\\lambda = \\frac{h}{p}",
+      "params": [
+        "h (0.5–2.0, default 1.0)",
+        "p (0.2–5.0, default 1.5)"
+      ],
+      "mapping": "wavelength ← \\lambda",
+      "teaching_semantics": {
+        "zh-Hans": "展示动量越大波长越短",
+        "en": "Shows de Broglie Relation."
+      },
+      "preview": "6–10s 波长随动量缩短"
+    },
+    {
+      "id": "entropy_boltzmann",
+      "name": {
+        "zh-Hans": "Entropy（玻尔兹曼）",
+        "en": "Entropy (Boltzmann)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "S = k \\ln \\Omega",
+      "params": [
+        "k (0.5–2.0, default 1.0)",
+        "\\Omega (1–100, default 10)"
+      ],
+      "mapping": "entropy bar ← S",
+      "teaching_semantics": {
+        "zh-Hans": "展示微观状态数与熵的对数关系",
+        "en": "Shows Entropy (Boltzmann)."
+      },
+      "preview": "6–10s 熵随状态数增长"
+    },
+    {
+      "id": "stefan_boltzmann",
+      "name": {
+        "zh-Hans": "Stefan-玻尔兹曼 Law",
+        "en": "Stefan-Boltzmann Law"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "j^* = \\sigma T^4",
+      "params": [
+        "T (0.5–3.0, default 1.5)",
+        "\\sigma (0.5–2.0, default 1.0)"
+      ],
+      "mapping": "radiation intensity ← j^*",
+      "teaching_semantics": {
+        "zh-Hans": "展示温度四次方决定辐射强度",
+        "en": "Shows Stefan-Boltzmann Law."
+      },
+      "preview": "6–10s 强度随温度急剧增加"
+    },
+    {
+      "id": "wiens_displacement",
+      "name": {
+        "zh-Hans": "Wien 位移 Law",
+        "en": "Wien's Displacement Law"
+      },
+      "category": [
+        "Wave"
+      ],
+      "formula": "\\lambda_{\\max} T = b",
+      "params": [
+        "T (0.5–3.0, default 1.5)",
+        "b (0.5–2.0, default 1.0)"
+      ],
+      "mapping": "peak wavelength ← \\lambda_{\\max}",
+      "teaching_semantics": {
+        "zh-Hans": "展示峰值波长随温度反比变化",
+        "en": "Shows Wien's Displacement Law."
+      },
+      "preview": "6–10s 光谱峰值移动"
+    },
+    {
+      "id": "lorentz_transformation",
+      "name": {
+        "zh-Hans": "洛伦兹变换",
+        "en": "Lorentz Transformation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "x' = \\gamma (x - vt), \\quad t' = \\gamma (t - \\frac{vx}{c^2})",
+      "params": [
+        "v (0.0–0.9c, default 0.5c)",
+        "c (1.0–1.0, default 1.0)"
+      ],
+      "mapping": "worldlines ← (x,t) \\to (x',t')",
+      "teaching_semantics": {
+        "zh-Hans": "展示不同参考系下的时空坐标变换",
+        "en": "Shows Lorentz Transformation."
+      },
+      "preview": "8–12s 世界线倾斜对比"
+    },
+    {
+      "id": "boltzmann_distribution",
+      "name": {
+        "zh-Hans": "玻尔兹曼分布",
+        "en": "Boltzmann Distribution"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "P_i = \\frac{e^{-\\beta E_i}}{Z}",
+      "params": [
+        "\\beta (0.2–2.0, default 1.0)",
+        "E_i (0–5, default 2.0)"
+      ],
+      "mapping": "probability bars ← P_i",
+      "teaching_semantics": {
+        "zh-Hans": "展示能级概率随能量指数衰减",
+        "en": "Shows Boltzmann Distribution."
+      },
+      "preview": "6–10s 能级概率分布"
+    },
+    {
+      "id": "partition_function",
+      "name": {
+        "zh-Hans": "配分函数",
+        "en": "Partition Function"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "Z = \\sum_i e^{-\\beta E_i}",
+      "params": [
+        "\\beta (0.2–2.0, default 1.0)",
+        "E_i (0–5, default 2.0)"
+      ],
+      "mapping": "scalar ← Z",
+      "teaching_semantics": {
+        "zh-Hans": "展示配分函数对能级权重的汇总",
+        "en": "Shows Partition Function."
+      },
+      "preview": "6–10s Z 随温度变化"
+    },
+    {
+      "id": "free_energy",
+      "name": {
+        "zh-Hans": "Free 能量",
+        "en": "Free Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "F = -kT \\ln Z",
+      "params": [
+        "k (0.5–2.0, default 1.0)",
+        "T (0.5–3.0, default 1.5)",
+        "Z (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "energy bar ← F",
+      "teaching_semantics": {
+        "zh-Hans": "展示配分函数决定自由能",
+        "en": "Shows Free Energy."
+      },
+      "preview": "6–10s 自由能变化"
+    },
+    {
+      "id": "mean_energy",
+      "name": {
+        "zh-Hans": "Mean 能量",
+        "en": "Mean Energy"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "U = -\\frac{\\partial \\ln Z}{\\partial \\beta}",
+      "params": [
+        "\\beta (0.2–2.0, default 1.0)",
+        "Z (0.5–5.0, default 2.0)"
+      ],
+      "mapping": "energy bar ← U",
+      "teaching_semantics": {
+        "zh-Hans": "展示平均能量由配分函数导出",
+        "en": "Shows Mean Energy."
+      },
+      "preview": "6–10s 平均能量变化"
+    },
+    {
+      "id": "entropy_probability_form",
+      "name": {
+        "zh-Hans": "Entropy（Probability 形式）",
+        "en": "Entropy (Probability Form)"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "S = -k \\sum_i P_i \\ln P_i",
+      "params": [
+        "k (0.5–2.0, default 1.0)",
+        "P_i (0–1, default 0.2)"
+      ],
+      "mapping": "entropy bar ← S",
+      "teaching_semantics": {
+        "zh-Hans": "展示概率分布的熵",
+        "en": "Shows Entropy (Probability Form)."
+      },
+      "preview": "6–10s 熵随分布变化"
+    },
+    {
+      "id": "maxwell_boltzmann_speed_distribution",
+      "name": {
+        "zh-Hans": "麦克斯韦-玻尔兹曼速率分布",
+        "en": "Maxwell-Boltzmann Speed Distribution"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "f(v)=4\\pi \\left(\\frac{m}{2\\pi kT}\\right)^{3/2} v^2 e^{-\\frac{mv^2}{2kT}}",
+      "params": [
+        "m (0.2–5.0, default 1.0)",
+        "T (0.5–3.0, default 1.5)"
+      ],
+      "mapping": "distribution curve ← f(v)",
+      "teaching_semantics": {
+        "zh-Hans": "展示气体分子速率分布形态",
+        "en": "Shows Maxwell-Boltzmann Speed Distribution."
+      },
+      "preview": "6–10s 速率分布曲线"
+    },
+    {
+      "id": "state_space_model",
+      "name": {
+        "zh-Hans": "状态空间模型",
+        "en": "State-Space Model"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\dot{x} = A x + B u, \\quad y = C x + D u",
+      "params": [
+        "A (0.5–2.0, default 1.0)",
+        "B (0.5–2.0, default 1.0)",
+        "u (0–1, default 0.5)"
+      ],
+      "mapping": "state trajectory ← x(t), output ← y(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示状态随输入驱动的演化",
+        "en": "Shows State-Space Model."
+      },
+      "preview": "8–12s 状态响应曲线"
+    },
+    {
+      "id": "transfer_function",
+      "name": {
+        "zh-Hans": "传递函数",
+        "en": "Transfer Function"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "G(s) = \\frac{Y(s)}{U(s)}",
+      "params": [
+        "Gain (0.2–5.0, default 1.0)",
+        "Pole (0.2–3.0, default 1.0)"
+      ],
+      "mapping": "frequency response ← |G(j\\omega)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示系统频域响应",
+        "en": "Shows Transfer Function."
+      },
+      "preview": "8–12s 幅频曲线"
+    },
+    {
+      "id": "closed_loop_transfer",
+      "name": {
+        "zh-Hans": "闭环 Transfer",
+        "en": "Closed-Loop Transfer"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "T(s) = \\frac{G(s)}{1 + G(s)}",
+      "params": [
+        "Gain (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "closed-loop response ← |T(j\\omega)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示闭环对系统响应的影响",
+        "en": "Shows Closed-Loop Transfer."
+      },
+      "preview": "8–12s 闭环响应对比"
+    },
+    {
+      "id": "pole_zero_form",
+      "name": {
+        "zh-Hans": "极点-零点形式",
+        "en": "Pole-Zero Form"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "G(s) = K \\frac{\\prod (s - z_i)}{\\prod (s - p_i)}",
+      "params": [
+        "Poles (1–4, default 2)",
+        "Zeros (0–3, default 1)"
+      ],
+      "mapping": "pole-zero plot ← (p_i, z_i)",
+      "teaching_semantics": {
+        "zh-Hans": "展示极点/零点决定系统动态",
+        "en": "Shows Pole-Zero Form."
+      },
+      "preview": "6–10s 极点零点平面"
+    },
+    {
+      "id": "markov_chain_transition",
+      "name": {
+        "zh-Hans": "马尔可夫链 Transition",
+        "en": "Markov Chain Transition"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "p_{ij} = P(X_{n+1}=j \\mid X_n=i)",
+      "params": [
+        "States (2–6, default 3)",
+        "Steps (10–200, default 60)"
+      ],
+      "mapping": "state graph ← p_{ij}, state probabilities ← P(X_n)",
+      "teaching_semantics": {
+        "zh-Hans": "展示状态转移概率驱动的分布演化",
+        "en": "Shows Markov Chain Transition."
+      },
+      "preview": "8–12s 状态概率收敛"
+    },
+    {
+      "id": "poisson_process",
+      "name": {
+        "zh-Hans": "泊松过程",
+        "en": "Poisson Process"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "P(N(t)=k) = \\frac{(\\lambda t)^k e^{-\\lambda t}}{k!}",
+      "params": [
+        "\\lambda (0.1–3.0, default 1.0)",
+        "t (0–5, default 2.0)"
+      ],
+      "mapping": "count distribution ← P(N(t))",
+      "teaching_semantics": {
+        "zh-Hans": "展示事件计数随时间的分布",
+        "en": "Shows Poisson Process."
+      },
+      "preview": "6–10s 计数分布变化"
+    },
+    {
+      "id": "brownian_increment",
+      "name": {
+        "zh-Hans": "布朗增量",
+        "en": "Brownian Increment"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "X(t+\\Delta t) - X(t) \\sim \\mathcal{N}(0, \\sigma^2 \\Delta t)",
+      "params": [
+        "\\sigma (0.1–2.0, default 1.0)",
+        "Steps (50–500, default 200)"
+      ],
+      "mapping": "sample path ← X(t), variance ← \\sigma^2",
+      "teaching_semantics": {
+        "zh-Hans": "展示布朗运动增量的随机游走",
+        "en": "Shows Brownian Increment."
+      },
+      "preview": "8–12s 随机路径生成"
+    },
+    {
+      "id": "fokker_planck_equation",
+      "name": {
+        "zh-Hans": "Fokker-Planck 方程",
+        "en": "Fokker-Planck Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{\\partial p}{\\partial t} = -\\frac{\\partial}{\\partial x}(a p) + \\frac{1}{2}\\frac{\\partial^2}{\\partial x^2}(b^2 p)",
+      "params": [
+        "a (0.0–2.0, default 0.5)",
+        "b (0.1–2.0, default 1.0)"
+      ],
+      "mapping": "density ← p(x,t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示概率密度随时间演化",
+        "en": "Shows Fokker-Planck Equation."
+      },
+      "preview": "8–12s 密度扩散"
+    },
+    {
+      "id": "ito_sde",
+      "name": {
+        "zh-Hans": "伊藤 SDE",
+        "en": "Ito SDE"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "dX_t = a(X_t,t)\\,dt + b(X_t,t)\\,dW_t",
+      "params": [
+        "a (0.0–2.0, default 0.5)",
+        "b (0.1–2.0, default 1.0)"
+      ],
+      "mapping": "sample path ← X_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示随机漂移与扩散",
+        "en": "Shows Ito SDE."
+      },
+      "preview": "8–12s 随机轨迹"
+    },
+    {
+      "id": "stratonovich_sde",
+      "name": {
+        "zh-Hans": "斯特拉托诺维奇 SDE",
+        "en": "Stratonovich SDE"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "dX_t = a(X_t,t)\\,dt + b(X_t,t)\\circ dW_t",
+      "params": [
+        "a (0.0–2.0, default 0.5)",
+        "b (0.1–2.0, default 1.0)"
+      ],
+      "mapping": "sample path ← X_t",
+      "teaching_semantics": {
+        "zh-Hans": "展示 Stratonovich 解释下的随机演化",
+        "en": "Shows Stratonovich SDE."
+      },
+      "preview": "8–12s 随机轨迹对比"
+    },
+    {
+      "id": "ornstein_uhlenbeck",
+      "name": {
+        "zh-Hans": "Ornstein-Uhlenbeck 过程",
+        "en": "Ornstein-Uhlenbeck Process"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "dX_t = \\theta(\\mu - X_t)\\,dt + \\sigma\\,dW_t",
+      "params": [
+        "\\theta (0.1–2.0, default 0.6)",
+        "\\mu (0.0–2.0, default 1.0)",
+        "\\sigma (0.1–2.0, default 0.5)"
+      ],
+      "mapping": "sample path ← X_t, mean reversion ← \\theta",
+      "teaching_semantics": {
+        "zh-Hans": "展示均值回归过程",
+        "en": "Shows Ornstein-Uhlenbeck Process."
+      },
+      "preview": "8–12s 围绕均值波动"
+    },
+    {
+      "id": "euler_maruyama",
+      "name": {
+        "zh-Hans": "欧拉-Maruyama",
+        "en": "Euler-Maruyama"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "X_{n+1} = X_n + a(X_n,t_n)\\Delta t + b(X_n,t_n)\\Delta W_n",
+      "params": [
+        "\\Delta t (0.001–0.1, default 0.02)",
+        "Steps (50–500, default 200)"
+      ],
+      "mapping": "discrete path ← X_n",
+      "teaching_semantics": {
+        "zh-Hans": "展示 SDE 的数值近似",
+        "en": "Shows Euler-Maruyama."
+      },
+      "preview": "8–12s 离散随机轨迹"
+    },
+    {
+      "id": "nonlinear_system",
+      "name": {
+        "zh-Hans": "Nonlinear 系统",
+        "en": "Nonlinear System"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\dot{x} = f(x,u), \\quad y = g(x,u)",
+      "params": [
+        "Input u (0–1, default 0.5)"
+      ],
+      "mapping": "state trajectory ← x(t), output ← y(t)",
+      "teaching_semantics": {
+        "zh-Hans": "展示非线性系统的状态演化",
+        "en": "Shows Nonlinear System."
+      },
+      "preview": "8–12s 非线性响应曲线"
+    },
+    {
+      "id": "sensitivity_function",
+      "name": {
+        "zh-Hans": "灵敏度函数",
+        "en": "Sensitivity Function"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "S(s) = \\frac{1}{1+G(s)}",
+      "params": [
+        "Gain (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "sensitivity magnitude ← |S(j\\omega)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示扰动抑制能力",
+        "en": "Shows Sensitivity Function."
+      },
+      "preview": "6–10s 灵敏度曲线"
+    },
+    {
+      "id": "complementary_sensitivity",
+      "name": {
+        "zh-Hans": "互补灵敏度",
+        "en": "Complementary Sensitivity"
+      },
+      "category": [
+        "Transform"
+      ],
+      "formula": "T(s) = \\frac{G(s)}{1+G(s)}",
+      "params": [
+        "Gain (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "complementary response ← |T(j\\omega)|",
+      "teaching_semantics": {
+        "zh-Hans": "展示跟踪性能与噪声放大的权衡",
+        "en": "Shows Complementary Sensitivity."
+      },
+      "preview": "6–10s 互补灵敏度曲线"
+    },
+    {
+      "id": "geodesic_equation",
+      "name": {
+        "zh-Hans": "Geodesic 方程",
+        "en": "Geodesic Equation"
+      },
+      "category": [
+        "Dynamics"
+      ],
+      "formula": "\\frac{d^2 x^\\mu}{d\\tau^2} + \\Gamma^\\mu_{\\alpha\\beta} \\frac{dx^\\alpha}{d\\tau} \\frac{dx^\\beta}{d\\tau} = 0",
+      "params": [
+        "Mass (0.2–5.0, default 1.0)",
+        "Initial Velocity (0.2–5.0, default 1.0)"
+      ],
+      "mapping": "trajectory ← x^\\mu(\\tau)",
+      "teaching_semantics": {
+        "zh-Hans": "展示弯曲时空中的自由落体轨迹",
+        "en": "Shows Geodesic Equation."
+      },
+      "preview": "10–14s 测地线轨迹"
+    }
+  ]
+}
