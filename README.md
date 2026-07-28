@@ -46,16 +46,6 @@ Interactive 2D and 3D mathematics visualization, currently stored under the exis
     └── formulavis/            # Equation Studio website, privacy policy, and data
 ```
 
-## Local Preview
-
-The site is static and can be opened directly or served locally:
-
-```bash
-python3 -m http.server 4173
-```
-
-Then visit `http://127.0.0.1:4173/`.
-
 ## Deployment
 
 The `main` branch is published through GitHub Pages at:
